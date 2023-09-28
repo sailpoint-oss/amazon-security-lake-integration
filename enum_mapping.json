@@ -1,0 +1,2231 @@
+{
+  "('web_resources_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Create": 1,
+    "Read": 2,
+    "Update": 3,
+    "Delete": 4,
+    "Search": 5,
+    "Import": 6,
+    "Export": 7,
+    "Share": 8,
+    "Other": 99
+  },
+  "('web_resources_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('web_resources_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('web_resources_activity', 'class_uid')": {
+    "Web Resources Activity": 6001
+  },
+  "('web_resources_activity', 'type_uid')": {
+    "Web Resources Activity: Unknown": 600100,
+    "Web Resources Activity: Create": 600101,
+    "Web Resources Activity: Read": 600102,
+    "Web Resources Activity: Update": 600103,
+    "Web Resources Activity: Delete": 600104,
+    "Web Resources Activity: Search": 600105,
+    "Web Resources Activity: Import": 600106,
+    "Web Resources Activity: Export": 600107,
+    "Web Resources Activity: Share": 600108,
+    "Web Resources Activity: Other": 600199
+  },
+  "('web_resources_activity', 'category_uid')": {
+    "Application Activity": 6
+  },
+  "('web_resource_access_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Access Grant": 1,
+    "Access Deny": 2,
+    "Access Revoke": 3,
+    "Access Error": 4,
+    "Other": 99
+  },
+  "('web_resource_access_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('web_resource_access_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('web_resource_access_activity', 'class_uid')": {
+    "Web Resource Access Activity": 6004
+  },
+  "('web_resource_access_activity', 'type_uid')": {
+    "Web Resource Access Activity: Unknown": 600400,
+    "Web Resource Access Activity: Access Grant": 600401,
+    "Web Resource Access Activity: Access Deny": 600402,
+    "Web Resource Access Activity: Access Revoke": 600403,
+    "Web Resource Access Activity: Access Error": 600404,
+    "Web Resource Access Activity: Other": 600499
+  },
+  "('web_resource_access_activity', 'category_uid')": {
+    "Application Activity": 6
+  },
+  "('dns_activity', 'rcode_id')": {
+    "NoError": 0,
+    "FormError": 1,
+    "NotZone": 10,
+    "DSOTYPENI": 11,
+    "BADSIG_VERS": 16,
+    "BADKEY": 17,
+    "BADTIME": 18,
+    "BADMODE": 19,
+    "ServError": 2,
+    "BADNAME": 20,
+    "BADALG": 21,
+    "BADTRUNC": 22,
+    "BADCOOKIE": 23,
+    "Unassigned": 24,
+    "Reserved": 25,
+    "NXDomain": 3,
+    "NotImp": 4,
+    "Refused": 5,
+    "YXDomain": 6,
+    "YXRRSet": 7,
+    "NXRRSet": 8,
+    "NotAuth": 9,
+    "Other": 99
+  },
+  "('dns_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Query": 1,
+    "Response": 2,
+    "Reset": 3,
+    "Fail": 4,
+    "Refuse": 5,
+    "Traffic": 6,
+    "Other": 99
+  },
+  "('dns_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('dns_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('dns_activity', 'class_uid')": {
+    "DNS Activity": 4003
+  },
+  "('dns_activity', 'type_uid')": {
+    "DNS Activity: Unknown": 400300,
+    "DNS Activity: Query": 400301,
+    "DNS Activity: Response": 400302,
+    "DNS Activity: Reset": 400303,
+    "DNS Activity: Fail": 400304,
+    "DNS Activity: Refuse": 400305,
+    "DNS Activity: Traffic": 400306,
+    "DNS Activity: Other": 400399
+  },
+  "('dns_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('dns_activity', 'category_uid')": {
+    "Network Activity": 4
+  },
+  "('network_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Open": 1,
+    "Close": 2,
+    "Reset": 3,
+    "Fail": 4,
+    "Refuse": 5,
+    "Traffic": 6,
+    "Other": 99
+  },
+  "('network_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('network_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('network_activity', 'class_uid')": {
+    "Network Activity": 4001
+  },
+  "('network_activity', 'type_uid')": {
+    "Network Activity: Unknown": 400100,
+    "Network Activity: Open": 400101,
+    "Network Activity: Close": 400102,
+    "Network Activity: Reset": 400103,
+    "Network Activity: Fail": 400104,
+    "Network Activity: Refuse": 400105,
+    "Network Activity: Traffic": 400106,
+    "Network Activity: Other": 400199
+  },
+  "('network_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('network_activity', 'category_uid')": {
+    "Network Activity": 4
+  },
+  "('base_event', 'activity_id')": {
+    "Unknown": 0,
+    "Other": 99
+  },
+  "('base_event', 'category_uid')": {
+    "Uncategorized": 0
+  },
+  "('base_event', 'class_uid')": {
+    "Base Event": 0
+  },
+  "('base_event', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('base_event', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('base_event', 'type_uid')": {
+    "Base Event: Unknown": 0,
+    "Base Event: Other": 99
+  },
+  "('authorize_session', 'activity_id')": {
+    "Unknown": 0,
+    "Assign Privileges": 1,
+    "Assign Groups": 2,
+    "Other": 99
+  },
+  "('authorize_session', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('authorize_session', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('authorize_session', 'class_uid')": {
+    "Authorize Session": 3003
+  },
+  "('authorize_session', 'type_uid')": {
+    "Authorize Session: Unknown": 300300,
+    "Authorize Session: Assign Privileges": 300301,
+    "Authorize Session: Assign Groups": 300302,
+    "Authorize Session: Other": 300399
+  },
+  "('authorize_session', 'category_uid')": {
+    "Identity & Access Management": 3
+  },
+  "('process_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Launch": 1,
+    "Terminate": 2,
+    "Open": 3,
+    "Inject": 4,
+    "Set User ID": 5,
+    "Other": 99
+  },
+  "('process_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('process_activity', 'injection_type_id')": {
+    "Unknown": 0,
+    "Remote Thread": 1,
+    "Load Library": 2,
+    "Other": 99
+  },
+  "('process_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('process_activity', 'class_uid')": {
+    "Process Activity": 1007
+  },
+  "('process_activity', 'type_uid')": {
+    "Process Activity: Unknown": 100700,
+    "Process Activity: Launch": 100701,
+    "Process Activity: Terminate": 100702,
+    "Process Activity: Open": 100703,
+    "Process Activity: Inject": 100704,
+    "Process Activity: Set User ID": 100705,
+    "Process Activity: Other": 100799
+  },
+  "('process_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('process_activity', 'category_uid')": {
+    "System Activity": 1
+  },
+  "('config_state', 'activity_id')": {
+    "Unknown": 0,
+    "Log": 1,
+    "Collect": 2,
+    "Other": 99
+  },
+  "('config_state', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('config_state', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('config_state', 'class_uid')": {
+    "Device Config State": 5002
+  },
+  "('config_state', 'type_uid')": {
+    "Device Config State: Unknown": 500200,
+    "Device Config State: Log": 500201,
+    "Device Config State: Collect": 500202,
+    "Device Config State: Other": 500299
+  },
+  "('config_state', 'category_uid')": {
+    "Discovery": 5
+  },
+  "('kernel_extension', 'activity_id')": {
+    "Unknown": 0,
+    "Load": 1,
+    "Unload": 2,
+    "Other": 99
+  },
+  "('kernel_extension', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('kernel_extension', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('kernel_extension', 'class_uid')": {
+    "Kernel Extension Activity": 1002
+  },
+  "('kernel_extension', 'type_uid')": {
+    "Kernel Extension Activity: Unknown": 100200,
+    "Kernel Extension Activity: Load": 100201,
+    "Kernel Extension Activity: Unload": 100202,
+    "Kernel Extension Activity: Other": 100299
+  },
+  "('kernel_extension', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('kernel_extension', 'category_uid')": {
+    "System Activity": 1
+  },
+  "('smb_activity', 'share_type_id')": {
+    "Unknown": 0,
+    "File": 1,
+    "Pipe": 2,
+    "Print": 3,
+    "Other": 99
+  },
+  "('smb_activity', 'activity_id')": {
+    "Unknown": 0,
+    "File Supersede": 1,
+    "File Open": 2,
+    "File Create": 3,
+    "File Open If": 4,
+    "File Overwrite": 5,
+    "File Overwrite If": 6,
+    "Other": 99
+  },
+  "('smb_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('smb_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('smb_activity', 'class_uid')": {
+    "SMB Activity": 4006
+  },
+  "('smb_activity', 'type_uid')": {
+    "SMB Activity: Unknown": 400600,
+    "SMB Activity: File Supersede": 400601,
+    "SMB Activity: File Open": 400602,
+    "SMB Activity: File Create": 400603,
+    "SMB Activity: File Open If": 400604,
+    "SMB Activity: File Overwrite": 400605,
+    "SMB Activity: File Overwrite If": 400606,
+    "SMB Activity: Other": 400699
+  },
+  "('smb_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('smb_activity', 'category_uid')": {
+    "Network Activity": 4
+  },
+  "('scheduled_job_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Create": 1,
+    "Update": 2,
+    "Delete": 3,
+    "Enable": 4,
+    "Disable": 5,
+    "Start": 6,
+    "Other": 99
+  },
+  "('scheduled_job_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('scheduled_job_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('scheduled_job_activity', 'class_uid')": {
+    "Scheduled Job Activity": 1006
+  },
+  "('scheduled_job_activity', 'type_uid')": {
+    "Scheduled Job Activity: Unknown": 100600,
+    "Scheduled Job Activity: Create": 100601,
+    "Scheduled Job Activity: Update": 100602,
+    "Scheduled Job Activity: Delete": 100603,
+    "Scheduled Job Activity: Enable": 100604,
+    "Scheduled Job Activity: Disable": 100605,
+    "Scheduled Job Activity: Start": 100606,
+    "Scheduled Job Activity: Other": 100699
+  },
+  "('scheduled_job_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('scheduled_job_activity', 'category_uid')": {
+    "System Activity": 1
+  },
+  "('module_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Load": 1,
+    "Unload": 2,
+    "Other": 99
+  },
+  "('module_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('module_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('module_activity', 'class_uid')": {
+    "Module Activity": 1005
+  },
+  "('module_activity', 'type_uid')": {
+    "Module Activity: Unknown": 100500,
+    "Module Activity: Load": 100501,
+    "Module Activity: Unload": 100502,
+    "Module Activity: Other": 100599
+  },
+  "('module_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('module_activity', 'category_uid')": {
+    "System Activity": 1
+  },
+  "('email_file_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Send": 1,
+    "Receive": 2,
+    "Scan": 3,
+    "Other": 99
+  },
+  "('email_file_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('email_file_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('email_file_activity', 'class_uid')": {
+    "Email File Activity": 4011
+  },
+  "('email_file_activity', 'type_uid')": {
+    "Email File Activity: Unknown": 401100,
+    "Email File Activity: Send": 401101,
+    "Email File Activity: Receive": 401102,
+    "Email File Activity: Scan": 401103,
+    "Email File Activity: Other": 401199
+  },
+  "('email_file_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('email_file_activity', 'category_uid')": {
+    "Network Activity": 4
+  },
+  "('account_change', 'activity_id')": {
+    "Unknown": 0,
+    "Create": 1,
+    "Enable": 2,
+    "Password Change": 3,
+    "Password Reset": 4,
+    "Disable": 5,
+    "Delete": 6,
+    "Attach Policy": 7,
+    "Detach Policy": 8,
+    "Lock": 9,
+    "Other": 99
+  },
+  "('account_change', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('account_change', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('account_change', 'class_uid')": {
+    "Account Change": 3001
+  },
+  "('account_change', 'type_uid')": {
+    "Account Change: Unknown": 300100,
+    "Account Change: Create": 300101,
+    "Account Change: Enable": 300102,
+    "Account Change: Password Change": 300103,
+    "Account Change: Password Reset": 300104,
+    "Account Change: Disable": 300105,
+    "Account Change: Delete": 300106,
+    "Account Change: Attach Policy": 300107,
+    "Account Change: Detach Policy": 300108,
+    "Account Change: Lock": 300109,
+    "Account Change: Other": 300199
+  },
+  "('account_change', 'category_uid')": {
+    "Audit Activity": 3
+  },
+  "('security_finding', 'confidence_id')": {
+    "Unknown": 0,
+    "Low": 1,
+    "Medium": 2,
+    "High": 3,
+    "Other": 99
+  },
+  "('security_finding', 'activity_id')": {
+    "Unknown": 0,
+    "Create": 1,
+    "Update": 2,
+    "Other": 99
+  },
+  "('security_finding', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('security_finding', 'risk_level_id')": {
+    "Info": 0,
+    "Low": 1,
+    "Medium": 2,
+    "High": 3,
+    "Critical": 4
+  },
+  "('security_finding', 'state_id')": {
+    "Unknown": 0,
+    "New": 1,
+    "In Progress": 2,
+    "Suppressed": 3,
+    "Resolved": 4,
+    "Other": 99
+  },
+  "('security_finding', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('security_finding', 'class_uid')": {
+    "Security Finding": 2001
+  },
+  "('security_finding', 'type_uid')": {
+    "Security Finding: Unknown": 200100,
+    "Security Finding: Create": 200101,
+    "Security Finding: Update": 200102,
+    "Security Finding: Other": 200199
+  },
+  "('security_finding', 'impact_id')": {
+    "Unknown": 0,
+    "Low": 1,
+    "Medium": 2,
+    "High": 3,
+    "Critical": 4,
+    "Other": 99
+  },
+  "('security_finding', 'category_uid')": {
+    "Findings": 2
+  },
+  "('ftp_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Put": 1,
+    "Get": 2,
+    "Poll": 3,
+    "Delete": 4,
+    "Rename": 5,
+    "List": 6,
+    "Other": 99
+  },
+  "('ftp_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('ftp_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('ftp_activity', 'class_uid')": {
+    "FTP Activity": 4008
+  },
+  "('ftp_activity', 'type_uid')": {
+    "FTP Activity: Unknown": 400800,
+    "FTP Activity: Put": 400801,
+    "FTP Activity: Get": 400802,
+    "FTP Activity: Poll": 400803,
+    "FTP Activity: Delete": 400804,
+    "FTP Activity: Rename": 400805,
+    "FTP Activity: List": 400806,
+    "FTP Activity: Other": 400899
+  },
+  "('ftp_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('ftp_activity', 'category_uid')": {
+    "Network Activity": 4
+  },
+  "('group_management', 'activity_id')": {
+    "Unknown": 0,
+    "Assign Privileges": 1,
+    "Revoke Privileges": 2,
+    "Add User": 3,
+    "Remove User": 4,
+    "Other": 99
+  },
+  "('group_management', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('group_management', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('group_management', 'class_uid')": {
+    "Group Management": 3006
+  },
+  "('group_management', 'type_uid')": {
+    "Group Management: Unknown": 300600,
+    "Group Management: Assign Privileges": 300601,
+    "Group Management: Revoke Privileges": 300602,
+    "Group Management: Add User": 300603,
+    "Group Management: Remove User": 300604,
+    "Group Management: Other": 300699
+  },
+  "('group_management', 'category_uid')": {
+    "Identity & Access Management": 3
+  },
+  "('email_url_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Send": 1,
+    "Receive": 2,
+    "Scan": 3,
+    "Other": 99
+  },
+  "('email_url_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('email_url_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('email_url_activity', 'class_uid')": {
+    "Email URL Activity": 4012
+  },
+  "('email_url_activity', 'type_uid')": {
+    "Email URL Activity: Unknown": 401200,
+    "Email URL Activity: Send": 401201,
+    "Email URL Activity: Receive": 401202,
+    "Email URL Activity: Scan": 401203,
+    "Email URL Activity: Other": 401299
+  },
+  "('email_url_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('email_url_activity', 'category_uid')": {
+    "Network Activity": 4
+  },
+  "('network_file_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Upload": 1,
+    "Lock": 10,
+    "Unlock": 11,
+    "Share": 12,
+    "Unshare": 13,
+    "Open": 14,
+    "Download": 2,
+    "Update": 3,
+    "Delete": 4,
+    "Rename": 5,
+    "Copy": 6,
+    "Move": 7,
+    "Restore": 8,
+    "Preview": 9,
+    "Other": 99
+  },
+  "('network_file_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('network_file_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('network_file_activity', 'class_uid')": {
+    "Network File Activity": 4010
+  },
+  "('network_file_activity', 'type_uid')": {
+    "Network File Activity: Unknown": 401000,
+    "Network File Activity: Upload": 401001,
+    "Network File Activity: Download": 401002,
+    "Network File Activity: Update": 401003,
+    "Network File Activity: Delete": 401004,
+    "Network File Activity: Rename": 401005,
+    "Network File Activity: Copy": 401006,
+    "Network File Activity: Move": 401007,
+    "Network File Activity: Restore": 401008,
+    "Network File Activity: Preview": 401009,
+    "Network File Activity: Lock": 401010,
+    "Network File Activity: Unlock": 401011,
+    "Network File Activity: Share": 401012,
+    "Network File Activity: Unshare": 401013,
+    "Network File Activity: Open": 401014,
+    "Network File Activity: Other": 401099
+  },
+  "('network_file_activity', 'category_uid')": {
+    "Network Activity": 4
+  },
+  "('entity_management', 'activity_id')": {
+    "Unknown": 0,
+    "Create": 1,
+    "Read": 2,
+    "Update": 3,
+    "Delete": 4,
+    "Other": 99
+  },
+  "('entity_management', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('entity_management', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('entity_management', 'class_uid')": {
+    "Entity Management": 3004
+  },
+  "('entity_management', 'type_uid')": {
+    "Entity Management: Unknown": 300400,
+    "Entity Management: Create": 300401,
+    "Entity Management: Read": 300402,
+    "Entity Management: Update": 300403,
+    "Entity Management: Delete": 300404,
+    "Entity Management: Other": 300499
+  },
+  "('entity_management', 'category_uid')": {
+    "Identity & Access Management": 3
+  },
+  "('memory_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Allocate Page": 1,
+    "Modify Page": 2,
+    "Delete Page": 3,
+    "Buffer Overflow": 4,
+    "Disable DEP": 5,
+    "Enable DEP": 6,
+    "Read": 7,
+    "Write": 8,
+    "Other": 99
+  },
+  "('memory_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('memory_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('memory_activity', 'class_uid')": {
+    "Memory Activity": 1004
+  },
+  "('memory_activity', 'type_uid')": {
+    "Memory Activity: Unknown": 100400,
+    "Memory Activity: Allocate Page": 100401,
+    "Memory Activity: Modify Page": 100402,
+    "Memory Activity: Delete Page": 100403,
+    "Memory Activity: Buffer Overflow": 100404,
+    "Memory Activity: Disable DEP": 100405,
+    "Memory Activity: Enable DEP": 100406,
+    "Memory Activity: Read": 100407,
+    "Memory Activity: Write": 100408,
+    "Memory Activity: Other": 100499
+  },
+  "('memory_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('memory_activity', 'category_uid')": {
+    "System Activity": 1
+  },
+  "('email_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Send": 1,
+    "Receive": 2,
+    "Scan": 3,
+    "Other": 99
+  },
+  "('email_activity', 'direction_id')": {
+    "Unknown": 0,
+    "Inbound": 1,
+    "Outbound": 2,
+    "Internal": 3,
+    "Other": 99
+  },
+  "('email_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('email_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('email_activity', 'class_uid')": {
+    "Email Activity": 4009
+  },
+  "('email_activity', 'type_uid')": {
+    "Email Activity: Unknown": 400900,
+    "Email Activity: Send": 400901,
+    "Email Activity: Receive": 400902,
+    "Email Activity: Scan": 400903,
+    "Email Activity: Other": 400999
+  },
+  "('email_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('email_activity', 'category_uid')": {
+    "Network Activity": 4
+  },
+  "('application_lifecycle', 'activity_id')": {
+    "Unknown": 0,
+    "Install": 1,
+    "Remove": 2,
+    "Start": 3,
+    "Stop": 4,
+    "Other": 99
+  },
+  "('application_lifecycle', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('application_lifecycle', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('application_lifecycle', 'class_uid')": {
+    "Application Lifecycle": 6002
+  },
+  "('application_lifecycle', 'type_uid')": {
+    "Application Lifecycle: Unknown": 600200,
+    "Application Lifecycle: Install": 600201,
+    "Application Lifecycle: Remove": 600202,
+    "Application Lifecycle: Start": 600203,
+    "Application Lifecycle: Stop": 600204,
+    "Application Lifecycle: Other": 600299
+  },
+  "('application_lifecycle', 'category_uid')": {
+    "Application Activity": 6
+  },
+  "('file_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Create": 1,
+    "Encrypt": 10,
+    "Decrypt": 11,
+    "Mount": 12,
+    "Unmount": 13,
+    "Open": 14,
+    "Read": 2,
+    "Update": 3,
+    "Delete": 4,
+    "Rename": 5,
+    "Set Attributes": 6,
+    "Set Security": 7,
+    "Get Attributes": 8,
+    "Get Security": 9,
+    "Other": 99
+  },
+  "('file_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('file_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('file_activity', 'class_uid')": {
+    "File System Activity": 1001
+  },
+  "('file_activity', 'type_uid')": {
+    "File System Activity: Unknown": 100100,
+    "File System Activity: Create": 100101,
+    "File System Activity: Read": 100102,
+    "File System Activity: Update": 100103,
+    "File System Activity: Delete": 100104,
+    "File System Activity: Rename": 100105,
+    "File System Activity: Set Attributes": 100106,
+    "File System Activity: Set Security": 100107,
+    "File System Activity: Get Attributes": 100108,
+    "File System Activity: Get Security": 100109,
+    "File System Activity: Encrypt": 100110,
+    "File System Activity: Decrypt": 100111,
+    "File System Activity: Mount": 100112,
+    "File System Activity: Unmount": 100113,
+    "File System Activity: Open": 100114,
+    "File System Activity: Other": 100199
+  },
+  "('file_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('file_activity', 'category_uid')": {
+    "System Activity": 1
+  },
+  "('rdp_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Initial Request": 1,
+    "Initial Response": 2,
+    "Connect Request": 3,
+    "Connect Response": 4,
+    "TLS Handshake": 5,
+    "Traffic": 6,
+    "Other": 99
+  },
+  "('rdp_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('rdp_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('rdp_activity', 'class_uid')": {
+    "RDP Activity": 4005
+  },
+  "('rdp_activity', 'type_uid')": {
+    "RDP Activity: Unknown": 400500,
+    "RDP Activity: Initial Request": 400501,
+    "RDP Activity: Initial Response": 400502,
+    "RDP Activity: Connect Request": 400503,
+    "RDP Activity: Connect Response": 400504,
+    "RDP Activity: TLS Handshake": 400505,
+    "RDP Activity: Traffic": 400506,
+    "RDP Activity: Other": 400599
+  },
+  "('rdp_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('rdp_activity', 'category_uid')": {
+    "Network Activity": 4
+  },
+  "('dhcp_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Discover": 1,
+    "Offer": 2,
+    "Request": 3,
+    "Decline": 4,
+    "Ack": 5,
+    "Nak": 6,
+    "Release": 7,
+    "Inform": 8,
+    "Expire": 9,
+    "Other": 99
+  },
+  "('dhcp_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('dhcp_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('dhcp_activity', 'class_uid')": {
+    "DHCP Activity": 4004
+  },
+  "('dhcp_activity', 'type_uid')": {
+    "DHCP Activity: Unknown": 400400,
+    "DHCP Activity: Discover": 400401,
+    "DHCP Activity: Offer": 400402,
+    "DHCP Activity: Request": 400403,
+    "DHCP Activity: Decline": 400404,
+    "DHCP Activity: Ack": 400405,
+    "DHCP Activity: Nak": 400406,
+    "DHCP Activity: Release": 400407,
+    "DHCP Activity: Inform": 400408,
+    "DHCP Activity: Expire": 400409,
+    "DHCP Activity: Other": 400499
+  },
+  "('dhcp_activity', 'category_uid')": {
+    "Network Activity": 4
+  },
+  "('user_access', 'activity_id')": {
+    "Unknown": 0,
+    "Assign Privileges": 1,
+    "Revoke Privileges": 2,
+    "Other": 99
+  },
+  "('user_access', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('user_access', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('user_access', 'class_uid')": {
+    "User Access Management": 3005
+  },
+  "('user_access', 'type_uid')": {
+    "User Access Management: Unknown": 300500,
+    "User Access Management: Assign Privileges": 300501,
+    "User Access Management: Revoke Privileges": 300502,
+    "User Access Management: Other": 300599
+  },
+  "('user_access', 'category_uid')": {
+    "Identity & Access Management": 3
+  },
+  "('kernel_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Create": 1,
+    "Read": 2,
+    "Delete": 3,
+    "Invoke": 4,
+    "Other": 99
+  },
+  "('kernel_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('kernel_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('kernel_activity', 'class_uid')": {
+    "Kernel Activity": 1003
+  },
+  "('kernel_activity', 'type_uid')": {
+    "Kernel Activity: Unknown": 100300,
+    "Kernel Activity: Create": 100301,
+    "Kernel Activity: Read": 100302,
+    "Kernel Activity: Delete": 100303,
+    "Kernel Activity: Invoke": 100304,
+    "Kernel Activity: Other": 100399
+  },
+  "('kernel_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('kernel_activity', 'category_uid')": {
+    "System Activity": 1
+  },
+  "('http_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Connect": 1,
+    "Delete": 2,
+    "Get": 3,
+    "Head": 4,
+    "Options": 5,
+    "Post": 6,
+    "Put": 7,
+    "Trace": 8,
+    "Other": 99
+  },
+  "('http_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('http_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('http_activity', 'class_uid')": {
+    "HTTP Activity": 4002
+  },
+  "('http_activity', 'type_uid')": {
+    "HTTP Activity: Unknown": 400200,
+    "HTTP Activity: Connect": 400201,
+    "HTTP Activity: Delete": 400202,
+    "HTTP Activity: Get": 400203,
+    "HTTP Activity: Head": 400204,
+    "HTTP Activity: Options": 400205,
+    "HTTP Activity: Post": 400206,
+    "HTTP Activity: Put": 400207,
+    "HTTP Activity: Trace": 400208,
+    "HTTP Activity: Other": 400299
+  },
+  "('http_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('http_activity', 'category_uid')": {
+    "Network Activity": 4
+  },
+  "('ssh_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Open": 1,
+    "Close": 2,
+    "Reset": 3,
+    "Fail": 4,
+    "Refuse": 5,
+    "Traffic": 6,
+    "Other": 99
+  },
+  "('ssh_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('ssh_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('ssh_activity', 'class_uid')": {
+    "SSH Activity": 4007
+  },
+  "('ssh_activity', 'type_uid')": {
+    "SSH Activity: Unknown": 400700,
+    "SSH Activity: Open": 400701,
+    "SSH Activity: Close": 400702,
+    "SSH Activity: Reset": 400703,
+    "SSH Activity: Fail": 400704,
+    "SSH Activity: Refuse": 400705,
+    "SSH Activity: Traffic": 400706,
+    "SSH Activity: Other": 400799
+  },
+  "('ssh_activity', 'disposition_id')": {
+    "Unknown": 0,
+    "Allowed": 1,
+    "Exonerated": 10,
+    "Corrected": 11,
+    "Partially Corrected": 12,
+    "Uncorrected": 13,
+    "Delayed": 14,
+    "Detected": 15,
+    "No Action": 16,
+    "Logged": 17,
+    "Tagged": 18,
+    "Blocked": 2,
+    "Quarantined": 3,
+    "Isolated": 4,
+    "Deleted": 5,
+    "Dropped": 6,
+    "Custom Action": 7,
+    "Approved": 8,
+    "Restored": 9,
+    "Other": 99
+  },
+  "('ssh_activity', 'category_uid')": {
+    "Network Activity": 4
+  },
+  "('inventory_info', 'activity_id')": {
+    "Unknown": 0,
+    "Log": 1,
+    "Collect": 2,
+    "Other": 99
+  },
+  "('inventory_info', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('inventory_info', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('inventory_info', 'class_uid')": {
+    "Device Inventory Info": 5001
+  },
+  "('inventory_info', 'type_uid')": {
+    "Device Inventory Info: Unknown": 500100,
+    "Device Inventory Info: Log": 500101,
+    "Device Inventory Info: Collect": 500102,
+    "Device Inventory Info: Other": 500199
+  },
+  "('inventory_info', 'category_uid')": {
+    "Discovery": 5
+  },
+  "('authentication', 'logon_type_id')": {
+    "System": 0,
+    "Interactive": 2,
+    "Network": 3,
+    "Batch": 4,
+    "OS Service": 5,
+    "Unlock": 7,
+    "Network Cleartext": 8,
+    "New Credentials": 9,
+    "Remote Interactive": 10,
+    "Cached Interactive": 11,
+    "Cached Remote Interactive": 12,
+    "Cached Unlock": 13,
+    "Other": 99
+  },
+  "('authentication', 'activity_id')": {
+    "Unknown": 0,
+    "Logon": 1,
+    "Logoff": 2,
+    "Authentication Ticket": 3,
+    "Service Ticket": 4,
+    "Other": 99
+  },
+  "('authentication', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('authentication', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('authentication', 'class_uid')": {
+    "Authentication": 3002
+  },
+  "('authentication', 'type_uid')": {
+    "Authentication: Unknown": 300200,
+    "Authentication: Logon": 300201,
+    "Authentication: Logoff": 300202,
+    "Authentication: Authentication Ticket": 300203,
+    "Authentication: Service Ticket": 300204,
+    "Authentication: Other": 300299
+  },
+  "('authentication', 'auth_protocol_id')": {
+    "Unknown": 0,
+    "NTLM": 1,
+    "RADIUS": 10,
+    "Kerberos": 2,
+    "Digest": 3,
+    "OpenID": 4,
+    "SAML": 5,
+    "OAUTH 2.0": 6,
+    "PAP": 7,
+    "CHAP": 8,
+    "EAP": 9,
+    "Other": 99
+  },
+  "('authentication', 'category_uid')": {
+    "Identity & Access Management": 3
+  },
+  "('api_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Create": 1,
+    "Read": 2,
+    "Update": 3,
+    "Delete": 4,
+    "Other": 99
+  },
+  "('api_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('api_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('api_activity', 'class_uid')": {
+    "API Activity": 6003
+  },
+  "('api_activity', 'type_uid')": {
+    "API Activity: Unknown": 600300,
+    "API Activity: Create": 600301,
+    "API Activity: Read": 600302,
+    "API Activity: Update": 600303,
+    "API Activity: Delete": 600304,
+    "API Activity: Other": 600399
+  },
+  "('api_activity', 'category_uid')": {
+    "Application Activity": 6
+  },
+  "('reputation', 'score_id')": {
+    "Unknown": 0,
+    "Very Safe": 1,
+    "Malicious": 10,
+    "Safe": 2,
+    "Probably Safe": 3,
+    "Leans Safe": 4,
+    "May not be Safe": 5,
+    "Exercise Caution": 6,
+    "Suspicious/Risky": 7,
+    "Possibly Malicious": 8,
+    "Probably Malicious": 9,
+    "Other": 99
+  },
+  "('url', 'category_ids')": {
+    "Audio/Video Clips": 84,
+    "Sexual Expression": 93,
+    "Mixed Content/Potentially Adult": 50,
+    "Society/Daily Living": 61,
+    "Humor/Jokes": 68,
+    "Restaurants/Dining/Food": 64,
+    "TV/Video Streams": 114,
+    "Reference": 49,
+    "Religion": 54,
+    "Office/Business Applications": 85,
+    "Software Downloads": 71,
+    "Nudity": 6,
+    "Business/Economy": 21,
+    "Non-Viewable/Infrastructure": 96,
+    "Newsgroups/Forums": 53,
+    "Marijuana": 121,
+    "E-Card/Invitations": 106,
+    "Personals/Dating": 47,
+    "Potentially Unwanted Software": 102,
+    "Web Ads/Analytics": 88,
+    "Shopping": 58,
+    "Spam": 101,
+    "Art/Culture": 30,
+    "Controlled Substances": 25,
+    "Unknown": 0,
+    "Peer-to-Peer (P2P)": 83,
+    "News/Media": 46,
+    "Internet Connected Devices": 109,
+    "Government/Legal": 34,
+    "Alcohol": 23,
+    "Dynamic DNS Host": 103,
+    "Internet Telephony": 110,
+    "Travel": 66,
+    "Violence/Hate/Racism": 14,
+    "Piracy/Copyright Concerns": 118,
+    "Adult/Mature Content": 1,
+    "Games": 33,
+    "Abortion": 16,
+    "Social Networking": 55,
+    "Proxy Avoidance": 86,
+    "Child Pornography": 26,
+    "Vehicles": 67,
+    "Radio/Audio Streams": 113,
+    "Military": 35,
+    "Political/Social Advocacy": 36,
+    "Auctions": 59,
+    "Email": 52,
+    "For Kids": 87,
+    "Computer/Information Security": 108,
+    "Entertainment": 20,
+    "Placeholders": 98,
+    "Web Hosting": 89,
+    "Health": 37,
+    "Real Estate": 60,
+    "Search Engines/Portals": 40,
+    "Intimate Apparel/Swimsuit": 5,
+    "Education": 27,
+    "Online Meetings": 111,
+    "Weapons": 15,
+    "Personal Sites": 63,
+    "Technology/Internet": 38,
+    "Charitable Organizations": 29,
+    "Malicious Outbound Data/Botnets": 44,
+    "Informational": 107,
+    "Chat (IM)/SMS": 51,
+    "Job Search/Careers": 45,
+    "Translation": 95,
+    "Extreme": 7,
+    "Malicious Sources/Malnets": 43,
+    "Phishing": 18,
+    "Sports/Recreation": 65,
+    "Scam/Questionable/Illegal": 9,
+    "Remote Access Tools": 57,
+    "Uncategorized": 90,
+    "Media Sharing": 112,
+    "Suspicious": 92,
+    "File Storage/Sharing": 56,
+    "Brokerage/Trading": 32,
+    "Tobacco": 24,
+    "Other": 99,
+    "Alternative Spirituality/Belief": 22,
+    "Financial Services": 31,
+    "Content Servers": 97,
+    "Pornography": 3,
+    "Gambling": 11,
+    "Sex Education": 4,
+    "Hacking": 17
+  },
+  "('job', 'run_state_id')": {
+    "Unknown": 0,
+    "Ready": 1,
+    "Queued": 2,
+    "Running": 3,
+    "Stopped": 4,
+    "Other": 99
+  },
+  "('module', 'load_type_id')": {
+    "Unknown": 0,
+    "Standard": 1,
+    "Non Standard": 2,
+    "ShellCode": 3,
+    "Mapped": 4,
+    "NonStandard Backed": 5,
+    "Other": 99
+  },
+  "('tls_extension', 'type_id')": {
+    "server_name": 0,
+    "maximum_fragment_length": 1,
+    "supported_groups": 10,
+    "signature_algorithms": 13,
+    "use_srtp": 14,
+    "heartbeat": 15,
+    "application_layer_protocol_negotiation": 16,
+    "signed_certificate_timestamp": 18,
+    "client_certificate_type": 19,
+    "server_certificate_type": 20,
+    "padding": 21,
+    "pre_shared_key": 41,
+    "early_data": 42,
+    "supported_versions": 43,
+    "cookie": 44,
+    "psk_key_exchange_modes": 45,
+    "certificate_authorities": 47,
+    "oid_filters": 48,
+    "post_handshake_auth": 49,
+    "status_request": 5,
+    "signature_algorithms_cert": 50,
+    "key_share": 51,
+    "Other": 99
+  },
+  "('user', 'type_id')": {
+    "Unknown": 0,
+    "User": 1,
+    "Admin": 2,
+    "System": 3,
+    "Other": 99
+  },
+  "('os', 'type_id')": {
+    "Unknown": 0,
+    "Windows": 100,
+    "Windows Mobile": 101,
+    "Linux": 200,
+    "Android": 201,
+    "macOS": 300,
+    "iOS": 301,
+    "iPadOS": 302,
+    "Solaris": 400,
+    "AIX": 401,
+    "HP-UX": 402,
+    "Other": 99
+  },
+  "('fingerprint', 'algorithm_id')": {
+    "Unknown": 0,
+    "MD5": 1,
+    "SHA-1": 2,
+    "SHA-256": 3,
+    "SHA-512": 4,
+    "CTPH": 5,
+    "TLSH": 6,
+    "quickXorHash": 7,
+    "Other": 99
+  },
+  "('kill_chain', 'phase_id')": {
+    "Unknown": 0,
+    "Reconnaissance": 1,
+    "Weaponization": 2,
+    "Delivery": 3,
+    "Exploitation": 4,
+    "Installation": 5,
+    "Command & Control": 6,
+    "Actions on Objectives": 7,
+    "Other": 99
+  },
+  "('dns_answer', 'flag_ids')": {
+    "Unknown": 0,
+    "Authoritative Answer": 1,
+    "Truncated Response": 2,
+    "Recursion Desired": 3,
+    "Recursion Available": 4,
+    "Authentic Data": 5,
+    "Checking Disabled": 6,
+    "Other": 99
+  },
+  "('network_connection_info', 'boundary_id')": {
+    "Unknown": 0,
+    "Localhost": 1,
+    "Gateway VPC": 10,
+    "Internet Gateway": 11,
+    "Internal": 2,
+    "External": 3,
+    "Same VPC": 4,
+    "Internet/VPC Gateway": 5,
+    "Virtual Private Gateway": 6,
+    "Intra-region VPC": 7,
+    "Inter-region VPC": 8,
+    "Local Gateway": 9,
+    "Other": 99
+  },
+  "('network_connection_info', 'direction_id')": {
+    "Unknown": 0,
+    "Inbound": 1,
+    "Outbound": 2,
+    "Lateral": 3,
+    "Other": 99
+  },
+  "('network_connection_info', 'protocol_ver_id')": {
+    "Unknown": 0,
+    "Internet Protocol version 4 (IPv4)": 4,
+    "Internet Protocol version 6 (IPv6)": 6,
+    "Other": 99
+  },
+  "('dns_query', 'opcode_id')": {
+    "Query": 0,
+    "Inverse Query": 1,
+    "Status": 2,
+    "Reserved": 3,
+    "Notify": 4,
+    "Update": 5,
+    "DSO Message": 6
+  },
+  "('digital_signature', 'algorithm_id')": {
+    "Unknown": 0,
+    "DSA": 1,
+    "RSA": 2,
+    "ECDSA": 3,
+    "Authenticode": 4,
+    "Other": 99
+  },
+  "('analytic', 'type_id')": {
+    "Unknown": 0,
+    "Rule": 1,
+    "Behavioral": 2,
+    "Statistical": 3,
+    "Learning (ML/DL)": 4,
+    "Other": 99
+  },
+  "('file', 'confidentiality_id')": {
+    "Unknown": 0,
+    "Not Confidential": 1,
+    "Confidential": 2,
+    "Secret": 3,
+    "Top Secret": 4,
+    "Other": 99
+  },
+  "('file', 'type_id')": {
+    "Unknown": 0,
+    "Regular File": 1,
+    "Folder": 2,
+    "Character Device": 3,
+    "Block Device": 4,
+    "Local Socket": 5,
+    "Named Pipe": 6,
+    "Symbolic Link": 7,
+    "Other": 99
+  },
+  "('device', 'risk_level_id')": {
+    "Info": 0,
+    "Low": 1,
+    "Medium": 2,
+    "High": 3,
+    "Critical": 4
+  },
+  "('device', 'type_id')": {
+    "Unknown": 0,
+    "Server": 1,
+    "Desktop": 2,
+    "Laptop": 3,
+    "Tablet": 4,
+    "Mobile": 5,
+    "Virtual": 6,
+    "IOT": 7,
+    "Browser": 8,
+    "Other": 99
+  },
+  "('malware', 'classification_ids')": {
+    "Unknown": 0,
+    "Adware": 1,
+    "Ransomware": 10,
+    "Remote-Access-Trojan": 11,
+    "Resource-Exploitation": 13,
+    "Rogue-Security-Software": 14,
+    "Rootkit": 15,
+    "Screen-Capture": 16,
+    "Spyware": 17,
+    "Trojan": 18,
+    "Virus": 19,
+    "Backdoor": 2,
+    "Webshell": 20,
+    "Wiper": 21,
+    "Worm": 22,
+    "Bot": 3,
+    "Bootkit": 4,
+    "DDOS": 5,
+    "Downloader": 6,
+    "Dropper": 7,
+    "Exploit-Kit": 8,
+    "Keylogger": 9,
+    "Other": 99
+  },
+  "('account', 'type_id')": {
+    "Unknown": 0,
+    "LDAP Account": 1,
+    "AWS Account": 10,
+    "Windows Account": 2,
+    "AWS IAM User": 3,
+    "AWS IAM Role": 4,
+    "GCP Account": 5,
+    "Azure AD Account": 6,
+    "Mac OS Account": 7,
+    "Apple Account": 8,
+    "Linux Account": 9,
+    "Other": 99
+  },
+  "('observable', 'type_id')": {
+    "Unknown": 0,
+    "Hostname": 1,
+    "Resource UID": 10,
+    "IP Address": 2,
+    "Email": 22,
+    "Uniform Resource Locator": 23,
+    "Geo Location": 26,
+    "Container": 27,
+    "Registry Key": 28,
+    "Registry Value": 29,
+    "MAC Address": 3,
+    "Fingerprint": 30,
+    "User Name": 4,
+    "Email Address": 5,
+    "URL String": 6,
+    "File Name": 7,
+    "File Hash": 8,
+    "Process Name": 9,
+    "Other": 99
+  },
+  "('cvss', 'depth')": {
+    "Base": "Base",
+    "Environmental": "Environmental",
+    "Temporal": "Temporal"
+  },
+  "('network_interface', 'type_id')": {
+    "Unknown": 0,
+    "Wired": 1,
+    "Wireless": 2,
+    "Mobile": 3,
+    "Other": 99
+  },
+  "('http_request', 'http_method')": {
+    "Connect": "CONNECT",
+    "Delete": "DELETE",
+    "Get": "GET",
+    "Head": "HEAD",
+    "Options": "OPTIONS",
+    "Post": "POST",
+    "Put": "PUT",
+    "Trace": "TRACE"
+  },
+  "('kernel', 'type_id')": {
+    "Unknown": 0,
+    "Shared Mutex": 1,
+    "System Call": 2,
+    "Other": 99
+  },
+  "('process', 'integrity_id')": {
+    "Unknown": 0,
+    "Untrusted": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "System": 5,
+    "Protected": 6,
+    "Other": 99
+  },
+  "('access_activity', 'activity_id')": {
+    "Unknown": 0,
+    "Access Grant": 1,
+    "Access Deny": 2,
+    "Access Revoke": 3,
+    "Access Error": 4,
+    "Other": 99
+  },
+  "('access_activity', 'category_uid')": {
+    "Audit Activity": 3
+  },
+  "('access_activity', 'class_uid')": {
+    "Access Activity": 3006
+  },
+  "('access_activity', 'severity_id')": {
+    "Unknown": 0,
+    "Informational": 1,
+    "Low": 2,
+    "Medium": 3,
+    "High": 4,
+    "Critical": 5,
+    "Fatal": 6,
+    "Other": 99
+  },
+  "('access_activity', 'status_id')": {
+    "Unknown": 0,
+    "Success": 1,
+    "Failure": 2,
+    "Other": 99
+  },
+  "('access_activity', 'type_uid')": {
+    "Access Activity: Unknown": 300600,
+    "Access Activity: Access Grant": 300601,
+    "Access Activity: Access Deny": 300602,
+    "Access Activity: Access Revoke": 300603,
+    "Access Activity: Access Error": 300604,
+    "Access Activity: Other": 300699
+  }
+}

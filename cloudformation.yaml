@@ -1,0 +1,501 @@
+Parameters:
+  MaxEventsFromAPI:
+    Type: String
+    Description: "Number of events to request from SailPoint API on each run (10000 max)"
+    Default: ""
+  SecurityLakeS3Bucket:
+    Description: "Name of the S3 bucket where your Amazon Security Lakes Custom Source data is stored"
+    Type: String
+  SailPointTenantName:
+    Description: "The tenant name associated with your IdentityNow Tenant"
+    Type: String
+  SailPointClientID:
+    Description: "The ClientID from you Personal Access Token you created in your IdentityNow Tenant"
+    Type: String
+  SailPointClientSecret:
+    Description: "The Client Secret from the Personal Access Token you created in your IdentityNow Tenant"
+    Type: String
+    NoEcho: true
+  CheckpointStartDateTime:
+    Default: '2023-01-01T00:00:00.000Z'
+    Description: "Checkpoint time - Set this value to the date/time of the first event you want to transform in 'YYYY-MM-DDTHH:MM:SS.SSSZ' format"
+    Type: String
+  SecurityLakeAccountID:
+    Description: "Enter the AWS Account ID associated with your Amazon Security Lake configuration"
+    Type: String
+  AuthenticationExecutionRole:
+    Description: "Provider Role ARN associated with the Amazon Security Lake custom Source name sp-authentication"
+    Type: String
+  AccountChangeExecutionRole:
+    Description: "Provider Role ARN associated with the Amazon Security Lake custom Source name sp-account-change"
+    Type: String
+  ScheduledJobActivityExecutionRole:
+    Description: "Provider Role ARN associated with the Amazon Security Lake custom Source name sp-scheduled-job-act"
+    Type: String
+  SecurityLakeExternalID:
+    Default: "SailPoint"
+    Description: "The External ID associated with each Amazon Security Lake custom source"
+    Type: String
+
+
+Resources:
+  # Create a secret for the SailPointClientSecret value
+  SecretManagerResource:
+    Type: 'AWS::SecretsManager::Secret'
+    Properties:
+      Name: 'SailPointClientSecret'
+      Description: 'Client Secret for API Access'
+      SecretString: !Ref SailPointClientSecret
+
+  # Create the SSM Parameter
+  SailPointSSMParameter:
+    Type: 'AWS::SSM::Parameter'
+    Properties:
+      Name: 'SailPointOCSFCheckpoint'
+      Type: String
+      Value: !Ref CheckpointStartDateTime
+      Description: "Stores the last event created time transformed from the API"
+
+  SailPointLambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: "SailPointOCSFLambdaExecutionRole"
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: 'SailPointOCSFLambdaAccessPolicy'
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action: sts:AssumeRole
+                Resource:
+                  - !Ref AuthenticationExecutionRole
+                  - !Ref AccountChangeExecutionRole
+                  - !Ref ScheduledJobActivityExecutionRole
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetObject
+                  - s3:DeleteObject
+                Resource:
+                  - !Join
+                    - ''
+                    - - 'arn:aws:s3:::'
+                      - !Ref 'TempFileS3Bucket'
+                  - !Join
+                    - ''
+                    - - 'arn:aws:s3:::'
+                      - !Ref 'TempFileS3Bucket'
+                      - '/*'
+              - Effect: Allow
+                Action:
+                  - s3:ListBucket
+                Resource:
+                  - !Join
+                    - ''
+                    - - 'arn:aws:s3:::'
+                      - !Ref 'TempFileS3Bucket'
+              - Effect: Allow
+                Action:
+                  - ssm:GetParameter
+                  - ssm:PutParameter
+                Resource:
+                  - !Join
+                    - ''
+                    - - 'arn:aws:ssm:'
+                      - !Ref AWS::Region
+                      - ':'
+                      - !Ref AWS::AccountId
+                      - ':parameter/SailPointOCSFCheckpoint'
+              - Effect: Allow
+                Action:
+                  - 'secretsmanager:GetSecretValue'
+                Resource:
+                  - !Ref SecretManagerResource
+              - Effect: Allow
+                Action:
+                  - 'glue:StartCrawler'
+                  - 'glue:GetCrawler'
+                  - 'glue:GetCrawlerMetrics'
+                  - 'glue:GetTables'
+                Resource:
+                  - !Join
+                    - ''
+                    - - 'arn:aws:glue:'
+                      - !Ref AWS::Region
+                      - ':'
+                      - !Ref AWS::AccountId
+                      - ':crawler/SailPointOCSFGlueCrawler'
+              - Effect: Allow
+                Action:
+                  - 'glue:GetTables'
+                Resource:
+                  - !Join
+                    - ''
+                    - - 'arn:aws:glue:'
+                      - !Ref AWS::Region
+                      - ':'
+                      - !Ref AWS::AccountId
+                      - ':catalog'
+                  - !Join
+                    - ''
+                    - - 'arn:aws:glue:'
+                      - !Ref AWS::Region
+                      - ':'
+                      - !Ref AWS::AccountId
+                      - ':database/sailpoint_ocsf_data'
+              - Effect: Allow
+                Action:
+                  - 'glue:StartJobRun'
+                  - 'glue:GetJobRun'
+                  - 'glue:GetJobRunState'
+                Resource:
+                  - !Join
+                    - ''
+                    - - 'arn:aws:glue:'
+                      - !Ref AWS::Region
+                      - ':'
+                      - !Ref AWS::AccountId
+                      - ':job/SailPointOCSFGlueETLJob'
+              - Effect: Allow
+                Action:
+                  - 'lakeformation:GrantPermissions'
+                  - 'lakeformation:RevokePermissions'
+                Resource: '*'
+
+  SailPointLambdaAssumableRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: 'SailPointLambdaAssumableRole'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: 'Allow'
+            Principal:
+              Service:
+                - "glue.amazonaws.com"
+            Action:
+              - 'sts:AssumeRole'
+      Policies:
+        - PolicyName: 'SailPointLambdaAssumablePolicy'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "sts:AssumeRole"
+                Resource:
+                  - !Ref AuthenticationExecutionRole
+                  - !Ref AccountChangeExecutionRole
+                  - !Ref ScheduledJobActivityExecutionRole
+
+  SourceCodeS3Bucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Delete
+    Properties:
+      BucketName: !Sub aws-security-lake-sailpoint-sourcecode-${AWS::Region}-${AWS::AccountId}
+
+  TempFileS3Bucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Delete
+    Properties:
+      BucketName: !Sub aws-security-lake-sailpoint-staging-${AWS::Region}-${AWS::AccountId}
+
+  # Create Custom resource functions to copy lambda code
+  S3Copy:
+    Type: Custom::CopyToS3
+    Properties:
+      ServiceToken:
+        Fn::GetAtt:
+          - CopyFilesToS3
+          - Arn
+      # Provide S3 bucket name for lambda code
+      S3BucketName:
+        Ref: SourceCodeS3Bucket
+      Urls:
+        # Provide S3 URL for files to be copied
+        - https://splunk-immersion-lab.s3.amazonaws.com/sailpoint/sailpoint_ocsf_lambda_package.zip
+        - https://splunk-immersion-lab.s3.amazonaws.com/sailpoint/sailpointOCSFGlueETL.py
+  CopyFilesToS3:
+    Type: AWS::Lambda::Function
+    Properties:
+      Handler: index.lambda_handler
+      Role:
+        Fn::GetAtt:
+          - S3CopyLambdaExecutionRole
+          - Arn
+      Code:
+        ZipFile:
+          Fn::Join:
+            - "\n"
+            - - ''
+              - import os
+              - import urllib.request
+              - from urllib.parse import urlparse
+              - import json
+              - import boto3
+              - import cfnresponse
+              - ''
+              - print('Loading function')
+              - ''
+              - s3 = boto3.resource('s3')
+              - ''
+              - ''
+              - 'def save_to_local(url):'
+              - "    urlPath = urlparse(url).path"
+              - "    fileName = os.path.basename(urlPath)"
+              - "    filePath = '/tmp/' + fileName"
+              - "    urllib.request.urlretrieve(url, filePath)"
+              - "    return filePath"
+              - ''
+              - ''
+              - 'def upload_to_s3(filePath, bucket):'
+              - "    fileName = os.path.basename(filePath)"
+              - "    s3.Object(bucket, fileName).put(Body=open(filePath, 'rb'))"
+              - ''
+              - ''
+              - 'def copy_to_s3(url, bucket):'
+              - "    filePath = save_to_local(url)"
+              - "    upload_to_s3(filePath, bucket)"
+              - ''
+              - ''
+              - 'def lambda_handler(event, context):'
+              - "    print('Received event: ' + json.dumps(event, indent=2))"
+              - ''
+              - "    if event['RequestType'] == 'Create':"
+              - "        # get the properties set in the CloudFormation resource"
+              - "        properties = event['ResourceProperties']"
+              - "        urls = properties['Urls']"
+              - "        bucket = properties['S3BucketName']"
+              - "        try:"
+              - "            for url in urls:"
+              - "                copy_to_s3(url, bucket)"
+              - ''
+              - "        except Exception as e:"
+              - "            print(e)"
+              - "            cfnresponse.send(event, context, cfnresponse.FAILED, {"
+              - "                             'Response': 'Failure'})"
+              - "            return"
+              - ''
+              - "    cfnresponse.send(event, context, cfnresponse.SUCCESS,"
+              - "                     {'Response': 'Success'})"
+      Runtime: python3.8
+
+  S3CopyLambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Policies:
+        - PolicyName: root
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:*
+                Resource: arn:aws:logs:*:*:*
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                Resource:
+                  - !Join
+                    - ''
+                    - - 'arn:aws:s3:::'
+                      - !Ref 'SourceCodeS3Bucket'
+                  - !Join
+                    - ''
+                    - - 'arn:aws:s3:::'
+                      - !Ref 'SourceCodeS3Bucket'
+                      - '/*'
+
+
+  # Create The Lambda Function
+  SailPointLambdaFunction:
+    Type: AWS::Lambda::Function
+    DependsOn: S3Copy
+    Properties:
+      FunctionName: 'SailPointOCSFLambdaFunction'
+      Handler: sailpointEventCollector.lambda_handler
+      Runtime: python3.9
+      MemorySize: 512
+      Timeout: 900
+      Role: !GetAtt SailPointLambdaExecutionRole.Arn
+      Code:
+        S3Bucket: !Ref SourceCodeS3Bucket
+        S3Key:  'sailpoint_ocsf_lambda_package.zip'
+      Environment:
+        Variables:
+          TempFileS3Bucket: !Ref TempFileS3Bucket
+          TempFilePrefix: 'sailpoint-ocsf-events'
+          AWSParameterName: 'SailPointOCSFCheckpoint'
+          SailPointOrganizationName: !Ref SailPointTenantName
+          SailPointClientID: !Ref SailPointClientID
+          SailPointClientSecret: !Ref SailPointClientSecret
+          GlueCrawlerName: 'SailPointOCSFGlueCrawler'
+          GlueETLJob: 'SailPointOCSFGlueETLJob'
+          GlueDatabaseName: 'sailpoint_ocsf_data'
+          SecurityLakeS3Bucket: !Ref SecurityLakeS3Bucket
+          MaxEventsFromAPI: !Ref MaxEventsFromAPI
+          GlueETLJobIAMRoleARN: !GetAtt SailPointOCSFGlueRole.Arn
+          AuthenticationExecutionRole: !Ref AuthenticationExecutionRole
+          AccountChangeExecutionRole: !Ref AccountChangeExecutionRole
+          ScheduledJobActivityExecutionRole: !Ref ScheduledJobActivityExecutionRole
+          SecurityLakeExternalID: !Ref SecurityLakeExternalID
+
+  # Create AWS Glue Database for ETL
+  OCSFDatabase:
+    Type: AWS::Glue::Database
+    Properties:
+      DatabaseInput:
+        Description: "Glue Database for SailPoint OCSF ETL"
+        Name: 'sailpoint_ocsf_data'
+      CatalogId: !Ref AWS::AccountId
+
+  # Create Glue Resources
+  SailPointGlueCrawler:
+    Type: AWS::Glue::Crawler
+    Properties:
+      Name: 'SailPointOCSFGlueCrawler'
+      Role: !GetAtt SailPointOCSFGlueRole.Arn
+      DatabaseName: 'sailpoint_ocsf_data'
+      Classifiers:
+        - !Ref JsonClassifier
+      SchemaChangePolicy:
+        UpdateBehavior: "UPDATE_IN_DATABASE"
+        DeleteBehavior: "DEPRECATE_IN_DATABASE"
+      RecrawlPolicy:
+        RecrawlBehavior: "CRAWL_EVERYTHING"
+      Targets:
+        S3Targets:
+          - Path: !Join
+              - ''
+              - - 's3://'
+                - !Ref TempFileS3Bucket
+                - '/sailpoint-ocsf-events/account_change'
+          - Path: !Join
+              - ''
+              - - 's3://'
+                - !Ref TempFileS3Bucket
+                - '/sailpoint-ocsf-events/authentication'
+          - Path: !Join
+              - ''
+              - - 's3://'
+                - !Ref TempFileS3Bucket
+                - '/sailpoint-ocsf-events/scheduled_job_activity'
+  JsonClassifier:
+    Type: AWS::Glue::Classifier
+    Properties:
+      JsonClassifier:
+        Name: SailPointOCSFJsonClassifier
+        JsonPath: "$[*]"
+
+  SailPointOCSFGlueRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: 'SailPointOCSFGlueRole'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: 'Allow'
+            Principal:
+              Service:
+                - "glue.amazonaws.com"
+            Action:
+              - 'sts:AssumeRole'
+      Policies:
+        - PolicyName: 'SailPointOCSFGluePolicy'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:ListBucket
+                Resource:
+                  - !Sub 'arn:aws:s3:::${SourceCodeS3Bucket}'
+                  - !Sub 'arn:aws:s3:::${SourceCodeS3Bucket}/*'
+              - Effect: Allow
+                Action:
+                  - glue:*
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:ListBucket
+                  - lakeformation:GetDataAccess
+                Resource:
+                  - !Sub 'arn:aws:s3:::${TempFileS3Bucket}'
+                  - !Sub 'arn:aws:s3:::${TempFileS3Bucket}/*'
+              - Effect: Allow
+                Action:
+                  - lakeformation:GetDataAccess
+                Resource: "*"
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole
+
+  SailPointGlueETLJob:
+    DependsOn: CopyFilesToS3
+    Type: AWS::Glue::Job
+    Properties:
+      Name: 'SailPointOCSFGlueETLJob'
+      Role: !GetAtt SailPointOCSFGlueRole.Arn
+      Command:
+        Name: 'glueetl'
+        PythonVersion: '3'
+        ScriptLocation: !Join
+          - ''
+          - - 's3://'
+            - !Ref SourceCodeS3Bucket
+            - '/sailpointOCSFGlueETL.py'
+      DefaultArguments:
+        '--job-language': 'python'
+      WorkerType: 'G.1X'
+      NumberOfWorkers: 10
+      ExecutionProperty:
+        MaxConcurrentRuns: 1
+      GlueVersion: '4.0'
+
+  LakeFormationDatabaseCrawlersPermissions:
+    Type: AWS::LakeFormation::Permissions
+    Properties:
+      DataLakePrincipal:
+        DataLakePrincipalIdentifier: !GetAtt SailPointOCSFGlueRole.Arn
+      Permissions:
+        - 'ALL'
+      Resource:
+        DatabaseResource:
+          Name: !Ref OCSFDatabase
+
+  LakeFormationDataLocationCrawlerPermissions:
+    Type: AWS::LakeFormation::Permissions
+    DependsOn: LakeFormationDataLocationResource
+    Properties:
+      DataLakePrincipal:
+        DataLakePrincipalIdentifier: !GetAtt SailPointOCSFGlueRole.Arn
+      Permissions:
+        - 'DATA_LOCATION_ACCESS'
+      Resource:
+        DataLocationResource:
+          S3Resource: !Join
+            - ''
+            - - 'arn:aws:s3:::'
+              - !Ref 'TempFileS3Bucket'
+  LakeFormationDataLocationResource:
+    Type: AWS::LakeFormation::Resource
+    Properties:
+      ResourceArn: !GetAtt TempFileS3Bucket.Arn
+      UseServiceLinkedRole: true

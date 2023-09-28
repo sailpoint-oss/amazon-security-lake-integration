@@ -1,0 +1,75 @@
+{
+  "AUTH": {
+    "LOGOUT": "Logoff",
+    "LOGIN_SUCCESS": "Logon",
+    "PASSED": "Success",
+    "FAILED": "Failure",
+    "USER": "User",
+    "REQUEST": "Logon"
+  },
+  "PASSWORD_ACTIVITY": {
+    "UPDATE": "Password Change",
+    "CHANGE": "Password Change",
+    "ASSIGN": "Attach Policy",
+    "STARTED": "Other",
+    "PASSED": "Success",
+    "SYSTEM": "System"
+  },
+  "USER_MANAGEMENT": {
+    "ACTIVATE": "Other",
+    "ANSWERS": "Other",
+    "DELETE": "Delete",
+    "GRANT": "Other",
+    "INVITE": "Other",
+    "REGISTER": "Other",
+    "UPDATE": "Update",
+    "SETUP": "Other",
+    "NOTIFY": "Other",
+    "SEND": "Other",
+    "PASSED": "Success",
+    "FAILED": "Failure",
+    "STARTED": "Other",
+    "USER": "User"
+  },
+  "PROVISIONING": {
+
+  },
+  "NON_EMPLOYEE": {
+
+  },
+  "IDENTITY_MANAGEMENT": {
+
+  },
+  "ACCESS_ITEM": {
+    "CREATE": "Other",
+    "PASSED": "Success",
+    "FAILED": "Failure",
+    "ADD": "Other",
+    "UPDATE": "Update",
+    "DENIED": "Other",
+    "REQUEST": "Other",
+    "REVOKE": "Other"
+  },
+  "ACCESS_REQUEST": {
+    "STARTED": "Other",
+    "APPROVED": "Access Grant",
+    "CANCELLED": "Access Revoke",
+    "PROCESSED": "Other",
+    "DENIED": "Access Deny",
+    "REQUEST": "Other",
+    "REVOKE": "Access Revoke"
+  },
+  "SYSTEM_CONFIG": {
+    "CREATE": "Create",
+    "UPDATE": "Update",
+    "DELETE": "Delete",
+    "ADD": "Start",
+    "PASSED": "Success",
+    "FAILED": "Failure",
+    "REQUEST": "Start",
+    "MODIFY": "Other",
+    "DISABLE": "Enable",
+    "SETUP": "Other",
+    "REGISTER" : "Other"
+  }
+}

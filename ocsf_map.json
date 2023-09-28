@@ -1,0 +1,1565 @@
+{
+  "AUTH": {
+    "fieldMappings": {
+      "org": [
+        {
+          "sample_data": "identity-plus-1",
+          "target_field": "dst_endpoint.hostname"
+        }
+      ],
+      "pod": [
+        {
+          "sample_data": "stg01-uswest2",
+          "target_field": ""
+        }
+      ],
+      "created": [
+        {
+          "sample_data": "2023-06-01T17:05:39.656Z",
+          "target_field": "time"
+        }
+      ],
+      "id": [
+        {
+          "sample_data": "5e730809996f02623cd457f8951b5ebe9e156339425e55336ea26b1f6f64835e",
+          "target_field": "metadata.uid"
+        }
+      ],
+      "action": [
+        {
+          "sample_data": "AUTHENTICATION-303",
+          "target_field": ""
+        }
+      ],
+      "type": [
+        {
+          "sample_data": "AUTH",
+          "target_field": "metadata.correlation_uid"
+        }
+      ],
+      "actor.name": [
+        {
+          "sample_data": "System",
+          "target_field": "actor.user.account_uid",
+          "conditions": [
+            {
+              "condition": "System in actor.name",
+              "source_field": "attributes.userId"
+            },
+            {
+              "condition": "System not in actor.name",
+              "source_field": "actor.name"
+            }
+          ]
+        }
+      ],
+      "target.name": [
+        {
+          "sample_data": "john.doe",
+          "target_field": "actor.user.account_uid"
+        }
+      ],
+      "stack": [
+        {
+          "sample_data": "oathkeeper",
+          "target_field": ""
+        }
+      ],
+      "trackingNumber": [
+        {
+          "sample_data": "abe6cf611c984be4b848ea42c8682a75",
+          "target_field": ""
+        }
+      ],
+      "ipAddress": [
+        {
+          "sample_data": "137.83.202.219",
+          "target_field": "src_endpoint.ip"
+        }
+      ],
+      "details": [
+        {
+          "sample_data": "abe6cf611c984be4b848ea42c8682a75",
+          "target_field": ""
+        }
+      ],
+      "attributes.pod": [
+        {
+          "sample_data": "stg01-uswest2",
+          "target_field": ""
+        }
+      ],
+      "attributes.org": [
+        {
+          "sample_data": "identity-plus-1",
+          "target_field": "actor.idp.name"
+        }
+      ],
+      "attributes.sourceName": [
+        {
+          "sample_data": "AuthnProvider",
+          "target_field": "actor.invoked_by"
+        }
+      ],
+      "attributes.info": [
+        {
+          "sample_data": "LOGOUT",
+          "target_field": ""
+        }
+      ],
+      "attributes.hostName": [
+        {
+          "sample_data": "137.83.202.219",
+          "target_field": "src_endpoint.hostname"
+        }
+      ],
+      "attributes.userId": [
+        {
+          "sample_data": "john.doe",
+          "target_field": ""
+        }
+      ],
+      "attributes.scope": [
+        {
+          "sample_data": "[\"sp:scopes:all\"]"
+        }
+      ],
+      "objects": [
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "actor.user.type",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "norm_string"
+        },
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "actor.user.type_id",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "user.type",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "norm_string"
+        },
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "user.type_id",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "integer"
+        }
+      ],
+      "operation": [
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "activity_id",
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "activity",
+          "transform": "normalize",
+          "output_type": "norm_string",
+          "concat_string": "Authentication: "
+        },
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "type_uid",
+          "transform": "normalize",
+          "output_type": "integer",
+          "concat_string": "Authentication: "
+        },
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "type_name",
+          "transform": "normalize",
+          "output_type": "norm_string"
+        }
+      ],
+      "status": [
+        {
+          "sample_data": "PASSED",
+          "target_field": "status_code"
+        },
+        {
+          "sample_data": "PASSED",
+          "target_field": "status_id",
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": "PASSED",
+          "target_field": "status",
+          "transform": "normalize",
+          "output_type": "norm_string"
+        }
+      ],
+      "technicalName": [
+        {
+          "sample_data": "USER_LOGOUT_PASSED",
+          "target_field": "status_detail"
+        }
+      ],
+      "name": [
+        {
+          "sample_data": "Logout User Passed",
+          "target_field": "message"
+        }
+      ],
+      "synced": [
+        {
+          "sample_data": "2023-06-01T17:05:40.254Z",
+          "target_field": ""
+        }
+      ],
+      "_type": [
+        {
+          "sample_data": "event",
+          "target_field": ""
+        }
+      ],
+      "_version": [
+        {
+          "sample_data": "v7",
+          "target_field": ""
+        }
+      ]
+    },
+    "staticValues": {
+      "category_name": "audit_activity",
+      "category_uid": 3,
+      "class_name": "authentication",
+      "class_uid": 3002,
+      "metadata.version": "1.0.0-rc.2",
+      "metadata.product.vendor_name": "SailPoint",
+      "metadata.product.name": "IdentityNow",
+      "severity": "Informational",
+      "severity_id": 1
+    }
+  },
+  "PASSWORD_ACTIVITY": {
+    "fieldMappings": {
+      "org": [
+        {
+          "sample_data": "identity-plus-1",
+          "target_field": "dst_endpoint.hostname"
+        }
+      ],
+      "pod": [
+        {
+          "sample_data": "stg01-uswest2",
+          "target_field": "dst_endpoint.location"
+        }
+      ],
+      "created": [
+        {
+          "sample_data": "2023-06-01T17:05:39.656Z",
+          "target_field": "time"
+        }
+      ],
+      "id": [
+        {
+          "sample_data": "5e730809996f02623cd457f8951b5ebe9e156339425e55336ea26b1f6f64835e",
+          "target_field": "metadata.uid"
+        }
+      ],
+      "action": [
+        {
+          "sample_data": "USER_PASSWORD_UPDATE_PASSED",
+          "target_field": ""
+        }
+      ],
+      "type": [
+        {
+          "sample_data": "PASSWORD_ACTIVITY",
+          "target_field": "metadata.correlation_uid"
+        }
+      ],
+      "actor.name": [
+        {
+          "sample_data": "SYSTEM, john.doe",
+          "target_field": "actor.user.type",
+          "transform": "normalize",
+          "output_type": "norm_string",
+          "conditions": [
+            {
+              "condition": "SYSTEM in actor.name",
+              "source_field": "actor.name"
+            }
+          ]
+        },
+        {
+          "sample_data": "SYSTEM, john.doe",
+          "target_field": "actor.user.type_id",
+          "transform": "normalize",
+          "output_type": "integer",
+          "conditions": [
+            {
+              "condition": "SYSTEM in actor.name",
+              "source_field": "actor.name"
+            }
+          ]
+        },
+        {
+          "sample_data": "SYSTEM, john.doe",
+          "target_field": "actor.user.account.name",
+          "conditions": [
+            {
+              "condition": "SYSTEM not in actor.name",
+              "source_field": "actor.name"
+            }
+          ]
+        }
+      ],
+      "target.name": [
+        {
+          "sample_data": "AWS SSO [source-79029], john.doe",
+          "target_field": "actor.idp.name",
+          "conditions": [
+            {
+              "condition": "SYSTEM in actor.name",
+              "source_field": "target.name"
+            }
+          ]
+        },
+        {
+          "sample_data": "AWS SSO [source-79029], john.doe",
+          "target_field": "actor.user.type",
+          "conditions": [
+            {
+              "condition": "SYSTEM not in actor.name",
+              "source_field": "user.account.name"
+            }
+          ]
+        }
+      ],
+      "stack": [
+        {
+          "sample_data": "oathkeeper",
+          "target_field": ""
+        }
+      ],
+      "trackingNumber": [
+        {
+          "sample_data": "6fab79aefd1c419ab648782c0e148ce2",
+          "target_field": ""
+        }
+      ],
+      "attributes.interface": [
+        {
+          "sample_data": "LCM",
+          "target_field": ""
+        }
+      ],
+      "attributes.sourceName": [
+        {
+          "sample_data": "IdentityNow",
+          "target_field": ""
+        }
+      ],
+      "attributes.accountName": [
+        {
+          "sample_data": "dhara.shah",
+          "target_field": ""
+        }
+      ],
+      "attributes.attributeName": [
+        {
+          "sample_data": "password",
+          "target_field": ""
+        }
+      ],
+      "attributes.accountUuid": [
+        {
+          "sample_data": "null",
+          "target_field": ""
+        }
+      ],
+      "objects": [
+        {
+          "sample_data": [
+            "PASSWORD",
+            "ACTION"
+          ],
+          "target_field": {
+            "PASSWORD": "",
+            "ACTION": ""
+          }
+        }
+      ],
+      "operation": [
+        {
+          "sample_data": "ASSIGN",
+          "target_field": "activity_id",
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": "UPDATE",
+          "target_field": "activity",
+          "transform": "normalize",
+          "output_type": "norm_string"
+        },
+        {
+          "sample_data": "UPDATE",
+          "target_field": "type_uid",
+          "transform": "normalize",
+          "output_type": "integer",
+          "concat_string": "Account Change: "
+        },
+        {
+          "sample_data": "UPDATE",
+          "target_field": "type_name",
+          "transform": "normalize",
+          "output_type": "norm_string",
+          "concat_string": "Account Change: "
+        }
+      ],
+      "status": [
+        {
+          "sample_data": "PASSED",
+          "target_field": "status_code"
+        },
+        {
+          "sample_data": "PASSED",
+          "target_field": "status_id",
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": "PASSED",
+          "target_field": "status",
+          "transform": "normalize",
+          "output_type": "norm_string"
+        }
+      ],
+      "technicalName": [
+        {
+          "sample_data": "USER_PASSWORD_UPDATE_PASSED",
+          "target_field": "status_detail"
+        }
+      ],
+      "name": [
+        {
+          "sample_data": "Logout User Passed",
+          "target_field": "message"
+        }
+      ],
+      "synced": [
+        {
+          "sample_data": "2023-06-01T17:05:40.254Z",
+          "target_field": ""
+        }
+      ],
+      "_type": [
+        {
+          "sample_data": "event",
+          "target_field": ""
+        }
+      ],
+      "_version": [
+        {
+          "sample_data": "v7",
+          "target_field": ""
+        }
+      ]
+    },
+    "staticValues": {
+      "category_name": "audit_activity",
+      "category_uid": 3,
+      "class_name": "account_change",
+      "class_uid": 3001,
+      "metadata.version": "1.0.0-rc.3",
+      "metadata.product.vendor_name": "SailPoint",
+      "metadata.product.name": "IdentityNow",
+      "severity": "Informational",
+      "severity_id": 1,
+      "actor.user.type": "User",
+      "actor.user.type_id": 1
+    }
+  },
+  "USER_MANAGEMENT": {
+    "fieldMappings": {
+      "org": [
+        {
+          "sample_data": "identity-plus-1",
+          "target_field": "dst_endpoint.hostname"
+        }
+      ],
+      "pod": [
+        {
+          "sample_data": "stg01-uswest2",
+          "target_field": ""
+        }
+      ],
+      "created": [
+        {
+          "sample_data": "2023-06-01T17:05:39.656Z",
+          "target_field": "time"
+        }
+      ],
+      "id": [
+        {
+          "sample_data": "5e730809996f02623cd457f8951b5ebe9e156339425e55336ea26b1f6f64835e",
+          "target_field": ""
+        }
+      ],
+      "action": [
+        {
+          "sample_data": "AUTHENTICATION-303",
+          "target_field": ""
+        }
+      ],
+      "type": [
+        {
+          "sample_data": "AUTH",
+          "target_field": ""
+        }
+      ],
+      "actor.name": [
+        {
+          "sample_data": "System",
+          "target_field": "actor.user.account_uid",
+          "conditions": [
+            {
+              "condition": "System in actor.name",
+              "source_field": "attributes.userId"
+            },
+            {
+              "condition": "System not in actor.name",
+              "source_field": "actor.name"
+            }
+          ]
+        }
+      ],
+      "target.name": [
+        {
+          "sample_data": "john.doe"
+        }
+      ],
+      "stack": [
+        {
+          "sample_data": "oathkeeper",
+          "target_field": ""
+        }
+      ],
+      "trackingNumber": [
+        {
+          "sample_data": "abe6cf611c984be4b848ea42c8682a75",
+          "target_field": ""
+        }
+      ],
+      "ipAddress": [
+        {
+          "sample_data": "137.83.202.219",
+          "target_field": "src_endpoint.ip"
+        }
+      ],
+      "details": [
+        {
+          "sample_data": "abe6cf611c984be4b848ea42c8682a75",
+          "target_field": ""
+        }
+      ],
+      "attributes.pod": [
+        {
+          "sample_data": "stg01-uswest2",
+          "target_field": ""
+        }
+      ],
+      "attributes.org": [
+        {
+          "sample_data": "identity-plus-1",
+          "target_field": "actor.idp.name"
+        }
+      ],
+      "attributes.sourceName": [
+        {
+          "sample_data": "AuthnProvider",
+          "target_field": "actor.invoked_by"
+        }
+      ],
+      "attributes.info": [
+        {
+          "sample_data": "LOGOUT",
+          "target_field": ""
+        }
+      ],
+      "attributes.hostName": [
+        {
+          "sample_data": "137.83.202.219",
+          "target_field": "src_endpoint.hostname"
+        }
+      ],
+      "attributes.userId": [
+        {
+          "sample_data": "john.doe",
+          "target_field": ""
+        }
+      ],
+      "attributes.scope": [
+        {
+          "sample_data": "[\"sp:scopes:all\"]"
+        }
+      ],
+      "objects": [
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "actor.user.type",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "norm_string"
+        },
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "actor.user.type_id",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "user.type",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "norm_string"
+        },
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "user.type_id",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "integer"
+        }
+      ],
+      "operation": [
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "activity_id",
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "activity",
+          "transform": "normalize",
+          "output_type": "norm_string"
+        },
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "type_uid",
+          "transform": "normalize",
+          "output_type": "integer",
+          "concat_string": "Account Change: "
+        },
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "type_name",
+          "transform": "normalize",
+          "output_type": "norm_string",
+          "concat_string": "Account Change: "
+        }
+      ],
+      "status": [
+        {
+          "sample_data": "PASSED",
+          "target_field": "status_code"
+        },
+        {
+          "sample_data": "PASSED",
+          "target_field": "status_id",
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": "PASSED",
+          "target_field": "status",
+          "transform": "normalize",
+          "output_type": "norm_string"
+        }
+      ],
+      "technicalName": [
+        {
+          "sample_data": "USER_LOGOUT_PASSED",
+          "target_field": "status_detail"
+        }
+      ],
+      "name": [
+        {
+          "sample_data": "Logout User Passed",
+          "target_field": "message"
+        }
+      ],
+      "synced": [
+        {
+          "sample_data": "2023-06-01T17:05:40.254Z",
+          "target_field": ""
+        }
+      ],
+      "_type": [
+        {
+          "sample_data": "event",
+          "target_field": ""
+        }
+      ],
+      "_version": [
+        {
+          "sample_data": "v7",
+          "target_field": ""
+        }
+      ]
+    },
+    "staticValues": {
+      "category_name": "audit_activity",
+      "category_uid": 3,
+      "class_name": "account_change",
+      "class_uid": 3001,
+      "metadata.version": "1.0.0-rc.2",
+      "metadata.product.vendor_name": "SailPoint",
+      "metadata.product.name": "IdentityNow",
+      "severity": "Informational",
+      "severity_id": 1
+    }
+  },
+  "ACCESS_ITEM": {
+    "fieldMappings": {
+      "org": [
+        {
+          "sample_data": "identity-plus-1",
+          "target_field": "dst_endpoint.hostname"
+        }
+      ],
+      "pod": [
+        {
+          "sample_data": "stg01-uswest2",
+          "target_field": ""
+        }
+      ],
+      "created": [
+        {
+          "sample_data": "2023-06-01T17:05:39.656Z",
+          "target_field": "time"
+        }
+      ],
+      "id": [
+        {
+          "sample_data": "5e730809996f02623cd457f8951b5ebe9e156339425e55336ea26b1f6f64835e",
+          "target_field": ""
+        }
+      ],
+      "action": [
+        {
+          "sample_data": "AUTHENTICATION-303",
+          "target_field": ""
+        }
+      ],
+      "type": [
+        {
+          "sample_data": "AUTH",
+          "target_field": ""
+        }
+      ],
+      "actor.name": [
+        {
+          "sample_data": "System",
+          "target_field": "actor.user.account_uid",
+          "conditions": [
+            {
+              "condition": "System in actor.name",
+              "source_field": "attributes.userId"
+            },
+            {
+              "condition": "System not in actor.name",
+              "source_field": "actor.name"
+            }
+          ]
+        }
+      ],
+      "target.name": [
+        {
+          "sample_data": "john.doe"
+        }
+      ],
+      "stack": [
+        {
+          "sample_data": "oathkeeper",
+          "target_field": ""
+        }
+      ],
+      "trackingNumber": [
+        {
+          "sample_data": "abe6cf611c984be4b848ea42c8682a75",
+          "target_field": ""
+        }
+      ],
+      "ipAddress": [
+        {
+          "sample_data": "137.83.202.219",
+          "target_field": "src_endpoint.ip"
+        }
+      ],
+      "details": [
+        {
+          "sample_data": "abe6cf611c984be4b848ea42c8682a75",
+          "target_field": ""
+        }
+      ],
+      "attributes.pod": [
+        {
+          "sample_data": "stg01-uswest2",
+          "target_field": ""
+        }
+      ],
+      "attributes.org": [
+        {
+          "sample_data": "identity-plus-1",
+          "target_field": "actor.idp.name"
+        }
+      ],
+      "attributes.sourceName": [
+        {
+          "sample_data": "AuthnProvider",
+          "target_field": "actor.invoked_by"
+        }
+      ],
+      "attributes.info": [
+        {
+          "sample_data": "LOGOUT",
+          "target_field": ""
+        }
+      ],
+      "attributes.hostName": [
+        {
+          "sample_data": "137.83.202.219",
+          "target_field": "src_endpoint.hostname"
+        }
+      ],
+      "attributes.userId": [
+        {
+          "sample_data": "john.doe",
+          "target_field": ""
+        }
+      ],
+      "attributes.scope": [
+        {
+          "sample_data": "[\"sp:scopes:all\"]"
+        }
+      ],
+      "objects": [
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "actor.user.type",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "norm_string"
+        },
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "actor.user.type_id",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "user.type",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "norm_string"
+        },
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "user.type_id",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "integer"
+        }
+      ],
+      "operation": [
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "activity_id",
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "activity",
+          "transform": "normalize",
+          "output_type": "norm_string"
+        },
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "type_uid",
+          "transform": "normalize",
+          "output_type": "integer",
+          "concat_string": "Authentication: "
+        },
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "type_name",
+          "transform": "normalize",
+          "output_type": "norm_string",
+          "concat_string": "Authentication: "
+        }
+      ],
+      "status": [
+        {
+          "sample_data": "PASSED",
+          "target_field": "status_code"
+        },
+        {
+          "sample_data": "PASSED",
+          "target_field": "status_id",
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": "PASSED",
+          "target_field": "status",
+          "transform": "normalize",
+          "output_type": "norm_string"
+        }
+      ],
+      "technicalName": [
+        {
+          "sample_data": "USER_LOGOUT_PASSED",
+          "target_field": "status_detail"
+        }
+      ],
+      "name": [
+        {
+          "sample_data": "Logout User Passed",
+          "target_field": "message"
+        }
+      ],
+      "synced": [
+        {
+          "sample_data": "2023-06-01T17:05:40.254Z",
+          "target_field": ""
+        }
+      ],
+      "_type": [
+        {
+          "sample_data": "event",
+          "target_field": ""
+        }
+      ],
+      "_version": [
+        {
+          "sample_data": "v7",
+          "target_field": ""
+        }
+      ]
+    },
+    "staticValues": {
+      "category_name": "audit_activity",
+      "category_uid": 3,
+      "class_name": "authentication",
+      "class_uid": 3002,
+      "metadata.version": "1.0.0-rc.2",
+      "metadata.product.vendor_name": "SailPoint",
+      "metadata.product.name": "IdentityNow",
+      "severity": "Informational",
+      "severity_id": 1
+    }
+  },
+  "PROVISIONING": {
+    "fieldMappings": {
+      "org": [
+        {
+          "sample_data": "identity-plus-1",
+          "target_field": "dst_endpoint.hostname"
+        }
+      ],
+      "pod": [
+        {
+          "sample_data": "stg01-uswest2",
+          "target_field": ""
+        }
+      ],
+      "created": [
+        {
+          "sample_data": "2023-06-01T17:05:39.656Z",
+          "target_field": "time"
+        }
+      ],
+      "id": [
+        {
+          "sample_data": "5e730809996f02623cd457f8951b5ebe9e156339425e55336ea26b1f6f64835e",
+          "target_field": ""
+        }
+      ],
+      "action": [
+        {
+          "sample_data": "AUTHENTICATION-303",
+          "target_field": ""
+        }
+      ],
+      "type": [
+        {
+          "sample_data": "AUTH",
+          "target_field": ""
+        }
+      ],
+      "actor.name": [
+        {
+          "sample_data": "System",
+          "target_field": "actor.user.account_uid",
+          "conditions": [
+            {
+              "condition": "System in actor.name",
+              "source_field": "attributes.userId"
+            },
+            {
+              "condition": "System not in actor.name",
+              "source_field": "actor.name"
+            }
+          ]
+        }
+      ],
+      "target.name": [
+        {
+          "sample_data": "john.doe"
+        }
+      ],
+      "stack": [
+        {
+          "sample_data": "oathkeeper",
+          "target_field": ""
+        }
+      ],
+      "trackingNumber": [
+        {
+          "sample_data": "abe6cf611c984be4b848ea42c8682a75",
+          "target_field": ""
+        }
+      ],
+      "ipAddress": [
+        {
+          "sample_data": "137.83.202.219",
+          "target_field": "src_endpoint.ip"
+        }
+      ],
+      "details": [
+        {
+          "sample_data": "abe6cf611c984be4b848ea42c8682a75",
+          "target_field": ""
+        }
+      ],
+      "attributes.pod": [
+        {
+          "sample_data": "stg01-uswest2",
+          "target_field": ""
+        }
+      ],
+      "attributes.org": [
+        {
+          "sample_data": "identity-plus-1",
+          "target_field": "actor.idp.name"
+        }
+      ],
+      "attributes.sourceName": [
+        {
+          "sample_data": "AuthnProvider",
+          "target_field": "actor.invoked_by"
+        }
+      ],
+      "attributes.info": [
+        {
+          "sample_data": "LOGOUT",
+          "target_field": ""
+        }
+      ],
+      "attributes.hostName": [
+        {
+          "sample_data": "137.83.202.219",
+          "target_field": "src_endpoint.hostname"
+        }
+      ],
+      "attributes.userId": [
+        {
+          "sample_data": "john.doe",
+          "target_field": ""
+        }
+      ],
+      "attributes.scope": [
+        {
+          "sample_data": "[\"sp:scopes:all\"]"
+        }
+      ],
+      "objects": [
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "actor.user.type",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "norm_string"
+        },
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "actor.user.type_id",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "user.type",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "norm_string"
+        },
+        {
+          "sample_data": [
+            "USER",
+            "PERSONAL",
+            "ACCESS",
+            "TOKEN"
+          ],
+          "target_field": {
+            "USER": "user.type_id",
+            "PERSONAL": "",
+            "ACCESS": "",
+            "TOKEN": ""
+          },
+          "transform": "normalize",
+          "output_type": "integer"
+        }
+      ],
+      "operation": [
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "activity_id",
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "activity",
+          "transform": "normalize",
+          "output_type": "norm_string"
+        },
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "type_uid",
+          "transform": "normalize",
+          "output_type": "integer",
+          "concat_string": "Account Change: "
+        },
+        {
+          "sample_data": "LOGOUT",
+          "target_field": "type_name",
+          "transform": "normalize",
+          "output_type": "norm_string",
+          "concat_string": "Account Change: "
+        }
+      ],
+      "status": [
+        {
+          "sample_data": "PASSED",
+          "target_field": "status_code"
+        },
+        {
+          "sample_data": "PASSED",
+          "target_field": "status_id",
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": "PASSED",
+          "target_field": "status",
+          "transform": "normalize",
+          "output_type": "norm_string"
+        }
+      ],
+      "technicalName": [
+        {
+          "sample_data": "USER_LOGOUT_PASSED",
+          "target_field": "status_detail"
+        }
+      ],
+      "name": [
+        {
+          "sample_data": "Logout User Passed",
+          "target_field": "message"
+        }
+      ],
+      "synced": [
+        {
+          "sample_data": "2023-06-01T17:05:40.254Z",
+          "target_field": ""
+        }
+      ],
+      "_type": [
+        {
+          "sample_data": "event",
+          "target_field": ""
+        }
+      ],
+      "_version": [
+        {
+          "sample_data": "v7",
+          "target_field": ""
+        }
+      ]
+    },
+    "staticValues": {
+      "category_name": "audit_activity",
+      "category_uid": 3,
+      "class_name": "account_change",
+      "class_uid": 3001,
+      "metadata.version": "1.0.0-rc.2",
+      "metadata.product.vendor_name": "SailPoint",
+      "metadata.product.name": "IdentityNow",
+      "severity": "Informational",
+      "severity_id": 1
+    }
+  },
+  "SYSTEM_CONFIG": {
+    "fieldMappings": {
+      "org": [
+        {
+          "sample_data": "identity-plus-1",
+          "target_field": "device.hostname"
+        },
+        {
+          "sample_data": "identity-plus-1",
+          "target_field": "job.file.name"
+        }
+      ],
+      "pod": [
+        {
+          "sample_data": "stg01-uswest2",
+          "target_field": "device.region"
+        }
+      ],
+      "created": [
+        {
+          "sample_data": "2023-06-01T17:05:39.656Z",
+          "target_field": "time"
+        },
+        {
+          "sample_data": "2023-06-01T17:05:39.656Z",
+          "target_field": ""
+        },
+        {
+          "sample_data": "2023-06-01T17:05:39.656Z",
+          "target_field": ""
+        }
+      ],
+      "id": [
+        {
+          "sample_data": "5e730809996f02623cd457f8951b5ebe9e156339425e55336ea26b1f6f64835e",
+          "target_field": "metadata.uid"
+        }
+      ],
+      "action": [
+        {
+          "sample_data": "delete",
+          "target_field": "activity_name"
+        }
+      ],
+      "type": [
+        {
+          "sample_data": "SYSTEM_CONFIG",
+          "target_field": "data.type"
+        }
+      ],
+      "actor.name": [
+        {
+          "sample_data": "MantisTaskScheduler",
+          "target_field": "actor.user.name"
+        }
+      ],
+      "target.name": [
+        {
+          "sample_data": "Periodic Provisioning Summary Details",
+          "target_field": "data.target.name"
+        }
+      ],
+      "stack": [
+        {
+          "sample_data": "tpe",
+          "target_field": "data.stack"
+        }
+      ],
+      "trackingNumber": [
+        {
+          "sample_data": "016598bbf7d24c05b54d5018e9df9774",
+          "target_field": "data.trackingNumber"
+        }
+      ],
+      "attributes.sourceName": [
+        {
+          "sample_data": "null, System",
+          "target_field": "data.attributes.sourceName"
+        }
+      ],
+      "attributes.info": [
+        {
+          "sample_data": "NONE",
+          "target_field": "data.attributes.sourceName"
+        }
+      ],
+      "attributes.hostName": [
+        {
+          "sample_data": "ec2-54-80-141-6.compute-1.amazonaws.com",
+          "target_field": "data.attributes.sourceName"
+        }
+      ],
+      "attributes.name": [
+        {
+          "sample_data": "Concur Access in Okta",
+          "target_field": "data.attributes.sourceName"
+        }
+      ],
+      "attributes.description": [
+        {
+          "sample_data": "Inactive Identities with Active Accounts",
+          "target_field": "data.attributes.sourceName"
+        }
+      ],
+      "objects": [
+        {
+          "sample_data": [
+            "TASK",
+            "SCHEDULE"
+          ],
+          "target_field": "data.objects"
+        }
+      ],
+      "operation": [
+        {
+          "sample_data": "CREATE",
+          "target_field": "activity_id",
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": "UPDATE",
+          "target_field": "activity_name",
+          "transform": "normalize",
+          "output_type": "norm_string"
+        },
+        {
+          "sample_data": "CREATE",
+          "target_field": "type_uid",
+          "transform": "normalize",
+          "output_type": "integer",
+          "concat_string": "Scheduled Job Activity: "
+        },
+        {
+          "sample_data": "UPDATE",
+          "target_field": "type_name",
+          "transform": "normalize",
+          "output_type": "norm_string",
+          "concat_string": "Scheduled Job Activity: "
+        }
+      ],
+      "status": [
+        {
+          "sample_data": "PASSED",
+          "target_field": "status_id",
+          "transform": "normalize",
+          "output_type": "integer"
+        },
+        {
+          "sample_data": "FAILED",
+          "target_field": "status",
+          "transform": "normalize",
+          "output_type": "norm_string"
+        }
+      ],
+      "technicalName": [
+        {
+          "sample_data": "TASK_SCHEDULE_UPDATE_PASSED",
+          "target_field": "status_detail"
+        }
+      ],
+      "name": [
+        {
+          "sample_data": "Update Task Schedule Passed",
+          "target_field": "message"
+        },
+        {
+          "sample_data": "Update Task Schedule Passed",
+          "target_field": "job.name"
+        }
+      ],
+      "synced": [
+        {
+          "sample_data": "2023-06-01T17:05:40.254Z",
+          "target_field": ""
+        }
+      ],
+      "_type": [
+        {
+          "sample_data": "event",
+          "target_field": "data._type"
+        }
+      ],
+      "_version": [
+        {
+          "sample_data": "v7",
+          "target_field": "data._version"
+        }
+      ]
+    },
+    "staticValues": {
+      "category_name": "system_activity",
+      "category_uid": 1,
+      "class_name": "scheduled_job_activity",
+      "class_uid": 1006,
+      "metadata.version": "1.0.0-rc.2",
+      "metadata.product.vendor_name": "SailPoint",
+      "metadata.product.name": "IdentityNow",
+      "severity": "Informational",
+      "severity_id": 1,
+      "device.type_id": 99,
+      "device.type": "other",
+      "job.file.type_id": 99
+    }
+  }
+}
