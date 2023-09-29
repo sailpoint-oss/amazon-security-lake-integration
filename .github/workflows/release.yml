@@ -38,19 +38,27 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Generate requirements file
-        run: pip freeze > requirements.txt
+      - name: Install pipreqs
+        run: pip install pipreqs
+
+      - name: Generate requirements.txt
+        run: |
+          mkdir temp_dir
+          cp sailpointEventCollector.py temp_dir/
+          pipreqs temp_dir/
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r temp_dir/requirements.txt
 
-      - name: Find site-packages and zip Package
+      - name: Zip dependencies
         run: |
-          SITE_PACKAGES=$(python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")
-          zip -r package.zip $SITE_PACKAGES/*
-
-      - name: Add additional files to ZIP
-        run: zip sailpoint_ocsf_lambda_package.zip sailpointEventCollector.py ocsf_map.json  normalized_terms.json  enum_mapping.json
+          mkdir package_temp
+          cp -r $(python -m site --user-site)/* package_temp/
+          cp sailpointEventCollector.py package_temp/
+          cp ocsf_map.json package_temp/
+          cp normalized_terms.json package_temp/
+          cp enum_mapping.json package_temp/
+          zip -r sailpoint_ocsf_lambda_package.zip package_temp/
 
       - name: Extract tag from GITHUB_REF
         id: tag
