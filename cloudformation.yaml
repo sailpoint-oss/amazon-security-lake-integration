@@ -223,7 +223,7 @@ Resources:
       Urls:
         # Provide S3 URL for files to be copied
         - https://github.com/sailpoint-oss/amazon-security-lake-integration/releases/download/v1.0.0/sailpoint_ocsf_lambda_package.zip
-        - https://github.com/sailpoint-oss/amazon-security-lake-integration/releases/download/v1.0.0/sailpoint_sailpointOCSFGlueETL.py
+        - https://github.com/sailpoint-oss/amazon-security-lake-integration/releases/download/v1.0.0/sailpointOCSFGlueETL.py
   CopyFilesToS3:
     Type: AWS::Lambda::Function
     Properties:
