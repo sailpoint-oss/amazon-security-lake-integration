@@ -24,6 +24,7 @@ concurrency:
 
 env:
   BASE_URL: '/'
+  GH_TOKEN: ${{ github.token }}
 
 jobs:
   publish:
