@@ -50,6 +50,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r temp_dir/requirements.txt
 
+      - name: List installed packages
+        run: pip freeze
+
       - name: Zip dependencies
         run: |
           mkdir package_temp
