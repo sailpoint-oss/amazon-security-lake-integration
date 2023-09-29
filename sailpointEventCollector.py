@@ -69,7 +69,7 @@ def lambda_handler(event, context):
     # Copy the files from the staging location to Lambda local storage
     s3_client = boto3.client('s3')
     source_bucket = os.environ['TempFileS3Bucket']
-    source_prefix = "ext/"
+    source_prefix = "parquet_temp/ext/"
     source_objects = get_s3_objects(s3_client, source_bucket, source_prefix)
 
     # Copies all parquet files from S3 to local
@@ -92,11 +92,9 @@ def lambda_handler(event, context):
         for obj in source_objects:
             key = obj['Key']
             if location in key:
-                print("Found location", location, "in key:", obj['Key'])
                 local_path = '/tmp/' + key.replace('/', '_')
                 custom_source_key = 'ext/' + key.replace('parquet_temp/ext/', '')
-                response = s3_client.upload_file(local_path, custom_source_bucket, custom_source_key)
-                print("s3 upload response:", response)
+                s3_client.upload_file(local_path, custom_source_bucket, custom_source_key)
 
     # Delete the temp files after successful parquet file conversion
     delete_s3_data(os.environ['TempFileS3Bucket'], os.environ['TempFilePrefix'])
