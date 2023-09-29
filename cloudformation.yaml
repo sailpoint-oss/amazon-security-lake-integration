@@ -222,12 +222,13 @@ Resources:
         Ref: SourceCodeS3Bucket
       Urls:
         # Provide S3 URL for files to be copied
-        - https://splunk-immersion-lab.s3.amazonaws.com/sailpoint/sailpoint_ocsf_lambda_package.zip
-        - https://splunk-immersion-lab.s3.amazonaws.com/sailpoint/sailpointOCSFGlueETL.py
+        - https://github.com/sailpoint-oss/amazon-security-lake-integration/releases/download/v1.0.0/sailpoint_ocsf_lambda_package.zip
+        - https://github.com/sailpoint-oss/amazon-security-lake-integration/releases/download/v1.0.0/sailpoint_sailpointOCSFGlueETL.py
   CopyFilesToS3:
     Type: AWS::Lambda::Function
     Properties:
       Handler: index.lambda_handler
+      Timeout: 30
       Role:
         Fn::GetAtt:
           - S3CopyLambdaExecutionRole
