@@ -94,7 +94,7 @@ def lambda_handler(event, context):
             if location in key:
                 print("Found location", location, "in key:", obj['Key'])
                 local_path = '/tmp/' + key.replace('/', '_')
-                custom_source_key = key.replace('parquet_temp/ext/', '')
+                custom_source_key = 'ext/' + key.replace('parquet_temp/ext/', '')
                 response = s3_client.upload_file(local_path, custom_source_bucket, custom_source_key)
                 print("s3 upload response:", response)
 

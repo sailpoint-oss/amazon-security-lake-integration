@@ -10,7 +10,7 @@ Parameters:
     Description: "The tenant name associated with your IdentityNow Tenant"
     Type: String
   SailPointClientID:
-    Description: "The ClientID from you Personal Access Token you created in your IdentityNow Tenant"
+    Description: "The ClientID from the Personal Access Token you created in your IdentityNow Tenant"
     Type: String
   SailPointClientSecret:
     Description: "The Client Secret from the Personal Access Token you created in your IdentityNow Tenant"
