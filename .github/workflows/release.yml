@@ -61,7 +61,8 @@ jobs:
           cp ocsf_map.json package_temp/
           cp normalized_terms.json package_temp/
           cp enum_mapping.json package_temp/
-          zip -r sailpoint_ocsf_lambda_package.zip package_temp/
+          cd package_temp
+          zip -r ../sailpoint_ocsf_lambda_package.zip .
 
       - name: Extract tag from GITHUB_REF
         id: tag
