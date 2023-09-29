@@ -44,11 +44,50 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Lambda Package
-        run: zip -r sailpoint_ocsf_lambda_package.zip sailpointEventCollector.py ocsf_map.json  normalized_terms.json  enum_mapping.json
+      - name: Find site-packages and zip Package
+        run: |
+          SITE_PACKAGES=$(python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")
+          cd $SITE_PACKAGES
+          zip -r ../../sailpoint_ocsf_lambda_package.zip *
+          cd ../..
+
+      - name: Add additional files to ZIP
+        run: zip sailpoint_ocsf_lambda_package.zip sailpointEventCollector.py ocsf_map.json  normalized_terms.json  enum_mapping.json
 
       - name: Create release with versioning
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.sha }}
+          release_name: Release ${{ github.sha }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload ZIP to Release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./sailpoint_ocsf_lambda_package.zip
+          asset_name: sailpoint_ocsf_lambda_package.zip
+          asset_content_type: application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload additional files to Release
         run: |
-          gh release create v1.0.0 \
-            sailpoint_ocsf_lambda_package.zip amazon_security_lake_integration_guide.docx cloudformation.yaml sailpointOCSFGlueETL.py
-            --title "Amazon Security Lake Sailpoint IdentityNow Integration v1.0.0"
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Content-Type: application/octet-stream" \
+          --data-binary @./sailpointOCSFGlueETL.py \
+          "${{ steps.create_release.outputs.upload_url }}?name=sailpointOCSFGlueETL.py"
+          
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Content-Type: application/octet-stream" \
+          --data-binary @./cloudformation.yaml \
+          "${{ steps.create_release.outputs.upload_url }}?name=cloudformation.yaml"
+          
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Content-Type: application/octet-stream" \
+          --data-binary @./amazon_security_lake_integration_guide.docx \
+          "${{ steps.create_release.outputs.upload_url }}?name=amazon_security_lake_integration_guide.docx"
