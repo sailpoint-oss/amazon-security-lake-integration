@@ -24,19 +24,14 @@ Parameters:
     Description: "Enter the AWS Account ID associated with your Amazon Security Lake configuration"
     Type: String
   AuthenticationExecutionRole:
-    Description: "Provider Role ARN associated with the Amazon Security Lake custom Source name sp-authentication"
+    Description: "Provider Role ARN associated with the Amazon Security Lake custom Source name sailpoint-auth"
     Type: String
   AccountChangeExecutionRole:
-    Description: "Provider Role ARN associated with the Amazon Security Lake custom Source name sp-account-change"
+    Description: "Provider Role ARN associated with the Amazon Security Lake custom Source name sailpoint-acct-chng"
     Type: String
   ScheduledJobActivityExecutionRole:
-    Description: "Provider Role ARN associated with the Amazon Security Lake custom Source name sp-scheduled-job-act"
+    Description: "Provider Role ARN associated with the Amazon Security Lake custom Source name sailpoint-sched-job"
     Type: String
-  SecurityLakeExternalID:
-    Default: "SailPoint"
-    Description: "The External ID associated with each Amazon Security Lake custom source"
-    Type: String
-
 
 Resources:
   # Create a secret for the SailPointClientSecret value
@@ -357,7 +352,7 @@ Resources:
           AuthenticationExecutionRole: !Ref AuthenticationExecutionRole
           AccountChangeExecutionRole: !Ref AccountChangeExecutionRole
           ScheduledJobActivityExecutionRole: !Ref ScheduledJobActivityExecutionRole
-          SecurityLakeExternalID: !Ref SecurityLakeExternalID
+          SecurityLakeExternalID: !Sub 'SailPoint_{SailPointTenantName}'
 
   # Create AWS Glue Database for ETL
   OCSFDatabase:

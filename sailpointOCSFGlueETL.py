@@ -25,9 +25,9 @@ logger.setLevel(logging.WARNING)
 
 # List of table names and source locations
 tables_and_locations = [
-    ("account_change", "parquet_temp/ext/sp-account-change"),
-    ("authentication", "parquet_temp/ext/sp-authentication"),
-    ("scheduled_job_activity", "parquet_temp/ext/sp-scheduled-job-act")
+    ("account_change", "parquet_temp/ext/sailpoint-acct-chng"),
+    ("authentication", "parquet_temp/ext/sailpoint-auth"),
+    ("scheduled_job_activity", "parquet_temp/ext/sailpoint-sched-job")
 ]
 
 for table_name, source_location in tables_and_locations:

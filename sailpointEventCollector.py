@@ -81,9 +81,9 @@ def lambda_handler(event, context):
     # Assume role for each Security Lake custom source and copy to custom source
     # Must use the s3a because it supports role assumption
     roles_and_paths = [
-        (os.environ['AuthenticationExecutionRole'], "ext/sp-authentication"),
-        (os.environ['AccountChangeExecutionRole'], "ext/sp-account-change"),
-        (os.environ['ScheduledJobActivityExecutionRole'], "ext/sp-scheduled-job-act")
+        (os.environ['AuthenticationExecutionRole'], "ext/sailpoint-auth"),
+        (os.environ['AccountChangeExecutionRole'], "ext/sailpoint-acct-chng"),
+        (os.environ['ScheduledJobActivityExecutionRole'], "ext/sailpoint-sched-job")
     ]
     custom_source_bucket = os.environ['SecurityLakeS3Bucket']
     external_id = os.environ['SecurityLakeExternalID']
