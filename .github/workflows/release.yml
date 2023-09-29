@@ -2,8 +2,8 @@ name: Release
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*''
     paths-ignore:
       - 'README.md'
       - '.github/**'
@@ -79,19 +79,32 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload additional files to Release
-        run: |
-          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -H "Content-Type: application/octet-stream" \
-          --data-binary @./sailpointOCSFGlueETL.py \
-          "${{ steps.create_release.outputs.upload_url }}?name=sailpointOCSFGlueETL.py"
-          
-          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -H "Content-Type: application/octet-stream" \
-          --data-binary @./cloudformation.yaml \
-          "${{ steps.create_release.outputs.upload_url }}?name=cloudformation.yaml"
-          
-          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -H "Content-Type: application/octet-stream" \
-          --data-binary @./amazon_security_lake_integration_guide.docx \
-          "${{ steps.create_release.outputs.upload_url }}?name=amazon_security_lake_integration_guide.docx"
+      - name: Upload cloudformation.yaml
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./cloudformation.yaml
+          asset_name: cloudformation.yaml
+          asset_content_type: text/plain
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload sailpointOCSFGlueETL.py
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./sailpointOCSFGlueETL.py
+          asset_name: sailpoint_sailpointOCSFGlueETL.py
+          asset_content_type: text/plain
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload amazon_security_lake_integration_guide.docx
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./amazon_security_lake_integration_guide.docx
+          asset_name: amazon_security_lake_integration_guide.docx
+          asset_content_type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
