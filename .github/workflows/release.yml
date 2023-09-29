@@ -72,6 +72,8 @@ jobs:
           asset_path: ./sailpoint_ocsf_lambda_package.zip
           asset_name: sailpoint_ocsf_lambda_package.zip
           asset_content_type: application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload additional files to Release
         run: |
