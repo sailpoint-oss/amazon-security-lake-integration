@@ -30,25 +30,25 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
 
-    - name: Generate requirements file
-      run: pip freeze > requirements.txt
+      - name: Generate requirements file
+        run: pip freeze > requirements.txt
 
-    - name: Install dependencies
-      run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-    - name: Lambda Package
-      run: zip -r sailpoint_ocsf_lambda_package.zip sailpointEventCollector.py ocsf_map.json  normalized_terms.json  enum_mapping.json
+      - name: Lambda Package
+        run: zip -r sailpoint_ocsf_lambda_package.zip sailpointEventCollector.py ocsf_map.json  normalized_terms.json  enum_mapping.json
 
-    - name: Create release with versioning
-      run: |
-        gh release create v1.0.0 \
-          sailpoint_ocsf_lambda_package.zip amazon_security_lake_integration_guide.docx cloudformation.yaml sailpointOCSFGlueETL.py
-          --title "Amazon Security Lake Sailpoint IdentityNow Integration v1.0.0"
+      - name: Create release with versioning
+        run: |
+          gh release create v1.0.0 \
+            sailpoint_ocsf_lambda_package.zip amazon_security_lake_integration_guide.docx cloudformation.yaml sailpointOCSFGlueETL.py
+            --title "Amazon Security Lake Sailpoint IdentityNow Integration v1.0.0"
