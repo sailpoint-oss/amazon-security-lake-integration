@@ -352,7 +352,7 @@ Resources:
           AuthenticationExecutionRole: !Ref AuthenticationExecutionRole
           AccountChangeExecutionRole: !Ref AccountChangeExecutionRole
           ScheduledJobActivityExecutionRole: !Ref ScheduledJobActivityExecutionRole
-          SecurityLakeExternalID: !Sub 'SailPoint_{SailPointTenantName}'
+          SecurityLakeExternalID: !Sub SailPoint_{SailPointTenantName}
 
   # Create AWS Glue Database for ETL
   OCSFDatabase:
