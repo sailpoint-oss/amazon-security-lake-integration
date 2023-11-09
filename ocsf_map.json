@@ -511,7 +511,7 @@
       "category_uid": 3,
       "class_name": "account_change",
       "class_uid": 3001,
-      "metadata.version": "1.0.0-rc.3",
+      "metadata.version": "1.0.0-rc.2",
       "metadata.product.vendor_name": "SailPoint",
       "metadata.product.name": "IdentityNow",
       "severity": "Informational",
